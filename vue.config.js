@@ -25,6 +25,7 @@ const __APP_INFO__ = {
 module.exports = defineConfig({
   // lintOnSave: false, //关闭eslint检查
   // publicPath: isDev ? '' : querystring.unescape('<%=request.getContextPath()%>'),
+  transpileDependencies: [/node_modules/],
   publicPath: process.env.BASE_URL,
   // filenameHashing: false,
   productionSourceMap: false,
