@@ -1,10 +1,10 @@
 {
   "name": "vue3-antd-admin",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "author": {
-    "name": "buqiyuan",
-    "email": "1743369777@qq.com",
-    "url": "https://github.com/buqiyuan"
+    "name": "shandongtlb",
+    "email": "504781485@qq.com",
+    "url": "https://github.com/shandongtlb"
   },
   "scripts": {
     "dev": "npm run serve",
@@ -100,9 +100,9 @@
   "__npminstall_done": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/buqiyuan/vue3-antd-admin"
+    "url": "https://github.com/shandongtlb/vue3-admin-front"
   },
-  "homepage": "https://buqiyuan.gitee.io/vue3-antd-admin",
+  "homepage": "https://github.com/shandongtlb/vue3-admin-front",
   "keywords": [
     "vue",
     "ant-design-vue",
