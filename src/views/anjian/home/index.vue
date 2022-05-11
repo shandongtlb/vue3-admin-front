@@ -5,12 +5,12 @@
 </template>
 
 <script>
-  import { onMounted } from 'vue';
-  import * as echarts from 'echarts';
+  import { onMounted, getCurrentInstance } from 'vue';
   export default {
     setup() {
+      const { proxy } = getCurrentInstance();
       onMounted(() => {
-        const myChart = echarts.init(document.getElementById('leibie'));
+        const myChart = proxy.$echarts.init(document.getElementById('leibie'));
         myChart.setOption({
           xAxis: {
             type: 'category',

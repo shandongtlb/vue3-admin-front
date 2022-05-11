@@ -4,6 +4,7 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
 import { createApp } from 'vue';
+import * as echarts from 'echarts';
 import App from './App.vue';
 import { setupRouter } from './router';
 import { setupStore } from '@/store';
@@ -16,7 +17,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const app = createApp(App);
-
+app.config.globalProperties.$echarts = echarts;
 function setupPlugins() {
   // 注册全局常用的ant-design-vue组件
   setupAntd(app);
