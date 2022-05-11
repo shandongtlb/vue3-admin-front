@@ -3,11 +3,11 @@
     <div class="login-logo">
       <!-- <svg-icon name="logo" :size="45" /> -->
       <img src="~@/assets/images/logo.png" width="45" />
-      <h1 class="mb-0 ml-2 text-3xl font-bold">青岛铁路公安处邹平站派出所数据分析平台</h1>
+      <h1 class="mb-0 ml-2 text-3xl font-bold">Antd Admin</h1>
     </div>
     <a-form layout="horizontal" :model="state.formInline" @submit.prevent="handleSubmit">
       <a-form-item>
-        <a-input v-model:value="state.formInline.username" size="large" placeholder="请输入用户名">
+        <a-input v-model:value="state.formInline.username" size="large" placeholder="rootadmin">
           <template #prefix><user-outlined type="user" /></template>
         </a-input>
       </a-form-item>
@@ -16,7 +16,7 @@
           v-model:value="state.formInline.password"
           size="large"
           type="password"
-          placeholder="请输入密码"
+          placeholder="123456"
           autocomplete="new-password"
         >
           <template #prefix><lock-outlined type="user" /></template>
