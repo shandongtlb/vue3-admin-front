@@ -11,54 +11,77 @@
   import VChart, { THEME_KEY } from 'vue-echarts';
 
   use([CanvasRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent]);
-
   export default defineComponent({
-    name: 'HelloWorld',
+    name: 'Index',
     components: {
       VChart,
     },
     provide: {
-      [THEME_KEY]: 'dark',
+      [THEME_KEY]: 'light',
     },
     setup() {
       const option = ref({
-        title: {
-          text: 'Traffic Sources',
-          left: 'center',
-        },
+        legend: {},
         tooltip: {
-          trigger: 'item',
-          formatter: '{a} <br/>{b} : {c} ({d}%)',
+          trigger: 'axis',
+          showContent: false,
         },
-        legend: {
-          orient: 'vertical',
-          left: 'left',
-          data: ['Direct', 'Email', 'Ad Networks', 'Video Ads', 'Search Engines'],
+        dataset: {
+          source: [
+            ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
+            ['Milk Tea', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
+            ['Matcha Latte', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
+            ['Cheese Cocoa', 40.1, 62.2, 69.5, 36.4, 45.2, 32.5],
+            ['Walnut Brownie', 25.2, 37.1, 41.2, 18, 33.9, 49.1],
+          ],
         },
+        xAxis: { type: 'category' },
+        yAxis: { gridIndex: 0 },
+        grid: { top: '55%' },
         series: [
           {
-            name: 'Traffic Sources',
+            type: 'line',
+            smooth: true,
+            seriesLayoutBy: 'row',
+            emphasis: { focus: 'series' },
+          },
+          {
+            type: 'line',
+            smooth: true,
+            seriesLayoutBy: 'row',
+            emphasis: { focus: 'series' },
+          },
+          {
+            type: 'line',
+            smooth: true,
+            seriesLayoutBy: 'row',
+            emphasis: { focus: 'series' },
+          },
+          {
+            type: 'line',
+            smooth: true,
+            seriesLayoutBy: 'row',
+            emphasis: { focus: 'series' },
+          },
+          {
             type: 'pie',
-            radius: '55%',
-            center: ['50%', '60%'],
-            data: [
-              { value: 335, name: 'Direct' },
-              { value: 310, name: 'Email' },
-              { value: 234, name: 'Ad Networks' },
-              { value: 135, name: 'Video Ads' },
-              { value: 1548, name: 'Search Engines' },
-            ],
+            id: 'pie',
+            radius: '30%',
+            center: ['50%', '25%'],
             emphasis: {
-              itemStyle: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)',
-              },
+              focus: 'self',
+            },
+            label: {
+              formatter: '{b}: {@2012} ({d}%)',
+            },
+            encode: {
+              itemName: 'product',
+              value: '2012',
+              tooltip: '2012',
             },
           },
         ],
       });
-
       return { option };
     },
   });
@@ -67,5 +90,6 @@
 <style scoped>
   .chart {
     height: 400px;
+    width: 500px;
   }
 </style>
