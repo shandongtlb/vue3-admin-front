@@ -1,38 +1,71 @@
 <template>
-  <div>
-    <div id="leibie" class="leibie-pie"></div>
-  </div>
+  <v-chart class="chart" :option="option" />
 </template>
 
 <script>
-  import { onMounted, getCurrentInstance } from 'vue';
-  export default {
-    setup() {
-      const { proxy } = getCurrentInstance();
-      onMounted(() => {
-        const myChart = proxy.$echarts.init(document.getElementById('leibie'));
-        myChart.setOption({
-          xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-          },
-          yAxis: {
-            type: 'value',
-          },
-          series: [
-            {
-              data: [150, 230, 224, 218, 135, 147, 260],
-              type: 'line',
-            },
-          ],
-        });
-      });
+  import { ref, defineComponent } from 'vue';
+  import { use } from 'echarts/core';
+  import { CanvasRenderer } from 'echarts/renderers';
+  import { PieChart } from 'echarts/charts';
+  import { TitleComponent, TooltipComponent, LegendComponent } from 'echarts/components';
+  import VChart, { THEME_KEY } from 'vue-echarts';
+
+  use([CanvasRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent]);
+
+  export default defineComponent({
+    name: 'HelloWorld',
+    components: {
+      VChart,
     },
-  };
+    provide: {
+      [THEME_KEY]: 'dark',
+    },
+    setup() {
+      const option = ref({
+        title: {
+          text: 'Traffic Sources',
+          left: 'center',
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter: '{a} <br/>{b} : {c} ({d}%)',
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'left',
+          data: ['Direct', 'Email', 'Ad Networks', 'Video Ads', 'Search Engines'],
+        },
+        series: [
+          {
+            name: 'Traffic Sources',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '60%'],
+            data: [
+              { value: 335, name: 'Direct' },
+              { value: 310, name: 'Email' },
+              { value: 234, name: 'Ad Networks' },
+              { value: 135, name: 'Video Ads' },
+              { value: 1548, name: 'Search Engines' },
+            ],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+              },
+            },
+          },
+        ],
+      });
+
+      return { option };
+    },
+  });
 </script>
-<style>
-  .leibie-pie {
-    height: 25rem;
-    width: 35rem;
+
+<style scoped>
+  .chart {
+    height: 400px;
   }
 </style>
