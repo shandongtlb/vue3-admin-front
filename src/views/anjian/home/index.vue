@@ -47,22 +47,6 @@
           <template #extra>
             <a href="#">更多</a>
           </template>
-          <List item-layout="horizontal" :data-source="pendingData">
-            <template #renderItem="{ item }">
-              <ListItem>
-                <ListItemMeta :description="item.content">
-                  <template #title>
-                    <a href="#">{{ item.title }}</a>
-                  </template>
-                  <template #avatar>
-                    <Avatar
-                      src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
-                    />
-                  </template>
-                </ListItemMeta>
-              </ListItem>
-            </template>
-          </List>
         </a-card>
       </a-col>
       <a-col :span="8" class="home-right">
@@ -88,12 +72,11 @@
 <script>
   import { reactive, ref, onMounted } from 'vue';
   import { UserOutlined } from '@ant-design/icons-vue';
-  import { Avatar, List, Statistic, ListItem, ListItemMeta } from 'ant-design-vue';
   import { timeFix } from '@/utils/timefix';
   import Chart from '@/components/Chart/UserTargetChart.vue';
   export default {
     name: 'Dashboard',
-    components: { Chart, UserOutlined, Avatar, List, Statistic, ListItem, ListItemMeta },
+    components: { Chart, UserOutlined },
     setup() {
       // data
       const timeFormat = timeFix();
