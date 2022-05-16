@@ -44,11 +44,11 @@
               },
             },
             indicator: [
-              { name: '引用', max: 100 },
-              { name: '口碑', max: 100 },
-              { name: '产量', max: 100 },
-              { name: '贡献', max: 100 },
-              { name: '热度', max: 100 },
+              { name: '数据研判', max: 100 },
+              { name: '安检', max: 100 },
+              { name: '进站查缉', max: 100 },
+              { name: '线路巡护', max: 100 },
+              { name: '内保', max: 100 },
             ],
           },
           series: [

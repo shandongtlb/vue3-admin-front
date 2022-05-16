@@ -8,60 +8,45 @@
           </Avatar>
         </div>
         <div class="header-content">
-          <div class="content-title"> {{ timeToFix }}，Jason Chen </div>
-          <div class="content-info">综合管理部 | 前端开发工程师</div>
+          <div class="content-title"> {{ timeToFix }}，治安支队 </div>
+          <div class="content-info">案件数量统计</div>
         </div>
       </div>
       <div class="header-right">
         <div class="stat-item">
-          <Statistic title="待办任务" :value="999" />
+          <Statistic title="本月案件数量" :value="56" />
         </div>
         <div class="stat-item">
-          <Statistic title="已办任务" :value="999" />
+          <Statistic title="上月案件数量" :value="47" />
         </div>
         <div class="stat-item">
-          <Statistic title="已发任务" :value="999" />
+          <Statistic title="同月上年数量" :value="77" />
         </div>
       </div>
     </div>
 
     <a-row :gutter="20" class="home-main">
-      <a-col :span="16" class="home-left">
-        <a-card class="project-box enter-y" title="进行中的项目" :loading="loading">
-          <template #extra>
-            <a href="#">更多</a>
-          </template>
-          <a-card-grid v-for="(item, index) in projectData" :key="index" class="project-item">
-            <a-card :bordered="false">
-              <a-card-meta :title="item.title">
-                <template #description>{{ item.content }}</template>
-              </a-card-meta>
-              <div class="card-footer">
-                <div>{{ item.userName }}</div>
-                <div>{{ item.date }}</div>
-              </div>
-            </a-card>
-          </a-card-grid>
+      <a-col :span="14" class="home-left">
+        <a-card class="pending-box enter-y" title="案件类型统计" :loading="loading">
+          <div>
+            <Huizong />
+          </div>
         </a-card>
-        <a-card class="pending-box enter-y" title="待办任务" :loading="loading">
-          <template #extra>
-            <a href="#">更多</a>
-          </template>
+        <a-card class="project-box enter-y" title="数据比较" :loading="loading">
+          <div>
+            <Jingqing />
+          </div>
         </a-card>
       </a-col>
-      <a-col :span="8" class="home-right">
-        <a-card class="chart-box enter-y" title="活动指数" :loading="loading">
+      <a-col :span="10" class="home-right">
+        <a-card class="chart-box enter-y" title="能力分析" :loading="loading">
           <div>
             <Chart />
           </div>
         </a-card>
-        <a-card class="black-box enter-y" title="黑名单" :loading="loading">
+        <a-card class="black-box enter-y" title="环比分析" :loading="loading">
           <div>
-            <ul>
-              <li>上海虎扑体育有限公司</li>
-              <li>北京百度科技有限公司</li>
-              <li>深圳腾讯科技有限公司</li>
-            </ul>
+            <Huanbi />
           </div>
         </a-card>
       </a-col>
@@ -72,11 +57,15 @@
 <script>
   import { reactive, ref, onMounted } from 'vue';
   import { UserOutlined } from '@ant-design/icons-vue';
+  import { Statistic, Avatar } from 'ant-design-vue';
+  import Huizong from './huizong.vue';
+  import Huanbi from './huanbi.vue';
+  import Jingqing from './jingqingtongji.vue';
   import { timeFix } from '@/utils/timefix';
-  import Chart from '@/components/Chart/UserTargetChart.vue';
+  import Chart from '@/components/Chart/nengli.vue';
   export default {
     name: 'Dashboard',
-    components: { Chart, UserOutlined },
+    components: { Chart, UserOutlined, Statistic, Avatar, Huizong, Huanbi, Jingqing },
     setup() {
       // data
       const timeFormat = timeFix();
@@ -84,23 +73,11 @@
       const avatarUrl = ref(require('@/assets/images/logo.png'));
       const loading = ref(true);
       const projectData = reactive([
-        { title: '阿里', content: 'this is a test', userName: 'Jason Chen', date: '2021-07-07' },
-        { title: '百度', content: 'this is a test', userName: 'Jason Chen', date: '2021-07-07' },
-        { title: '腾讯', content: 'this is a test', userName: 'Jason Chen', date: '2021-07-07' },
-        { title: '携程', content: 'this is a test', userName: 'Jason Chen', date: '2021-07-07' },
-        { title: '美团', content: 'this is a test', userName: 'Jason Chen', date: '2021-07-07' },
-        { title: '饿了么', content: 'this is a test', userName: 'Jason Chen', date: '2021-07-07' },
+        { title: '3', content: 'this is a test', userName: '3', date: '2021-07-07' },
+        { title: '2', content: 'this is a test', userName: '2', date: '2021-07-07' },
+        { title: '1', content: 'this is a test', userName: '1', date: '2021-07-07' },
       ]);
-      const pendingData = reactive([
-        { title: '项目申请', content: 'this is a test' },
-        { title: '项目申请', content: 'this is a test' },
-        { title: '项目申请', content: 'this is a test' },
-        { title: '项目申请', content: 'this is a test' },
-        { title: '项目申请', content: 'this is a test' },
-        { title: '项目申请', content: 'this is a test' },
-        { title: '项目申请', content: 'this is a test' },
-        { title: '项目申请', content: 'this is a test' },
-      ]);
+      const pendingData = reactive([{ title: '1', content: 'this is a test' }]);
       // mounted
       onMounted(() => {
         setTimeout(() => {

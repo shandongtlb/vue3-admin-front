@@ -3,7 +3,7 @@
     <div class="login-logo">
       <!-- <svg-icon name="logo" :size="45" /> -->
       <img src="~@/assets/images/logo.png" width="45" />
-      <h1 class="mb-0 ml-2 text-3xl font-bold">邹平站派出所数据分析平台</h1>
+      <h1 class="mb-0 ml-2 text-3xl font-bold">青岛铁路公安处数据分析平台</h1>
     </div>
     <a-form layout="horizontal" :model="state.formInline" @submit.prevent="handleSubmit">
       <a-form-item>
@@ -114,7 +114,7 @@
     width: 100vw;
     height: 100vh;
     padding-top: 240px;
-    background: url('~@/assets/login.svg');
+    background: url('~@/assets/login1.jpg');
     background-size: 100%;
     flex-direction: column;
     align-items: center;

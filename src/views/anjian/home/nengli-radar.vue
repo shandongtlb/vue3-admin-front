@@ -22,9 +22,6 @@
     },
     setup() {
       const option = ref({
-        title: {
-          text: '能力分析',
-        },
         legend: {
           data: ['Allocated Budget', 'Actual Spending'],
         },
