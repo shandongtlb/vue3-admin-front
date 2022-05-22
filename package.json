@@ -48,6 +48,7 @@
     "sortablejs": "^1.15.0",
     "vue": "3.2.33",
     "vue-echarts": "^6.0.3",
+    "vue-form-create": "^1.2.10",
     "vue-i18n": "9.2.0-beta.30",
     "vue-router": "^4.0.15",
     "vue-types": "^4.1.1",

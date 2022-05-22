@@ -13,7 +13,14 @@ import {
   DatePicker,
   Avatar,
   List,
+  Cascader,
+  Upload,
+  Slider,
+  Switch,
+  Rate,
   Statistic,
+  InputNumber,
+  TimePicker,
 } from 'ant-design-vue';
 import type { App } from 'vue';
 
@@ -42,6 +49,13 @@ export function setupAntd(app: App<Element>) {
     .use(Select)
     .use(Avatar)
     .use(List)
+    .use(Cascader)
+    .use(Upload)
+    .use(Slider)
+    .use(Switch)
+    .use(Rate)
     .use(Statistic)
+    .use(TimePicker)
+    .use(InputNumber)
     .use(DatePicker);
 }
