@@ -9,7 +9,6 @@ import App from './App.vue';
 import { setupRouter } from './router';
 import { setupStore } from '@/store';
 import { setupI18n } from '@/locales';
-import 'ant-design-vue/dist/antd.css';
 import { setupAntd, setupAssets, setupGlobalMethods, setupCustomComponents } from '@/plugins';
 
 if (process.env.NODE_ENV === 'production') {
