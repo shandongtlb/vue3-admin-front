@@ -6,9 +6,10 @@
   </div>
 </template>
 <script>
+  import { defineComponent } from 'vue';
   import L from 'leaflet';
   import 'leaflet/dist/leaflet.css';
-  export default {
+  export default defineComponent({
     name: 'AMap',
     data() {
       return {
@@ -32,27 +33,27 @@
         L.tileLayer('http://localhost:9090/{z}/{x}/{y}.png', {
           minZoom: 3,
           maxZoom: 16,
+          //detectRetina: true,
         }).addTo(this.map);
 
         //this.map.removeLayer(name); // 移除图层
       },
     },
-  };
+  });
 </script>
 
 <style scoped>
   .leaflet {
     width: 100%;
-    height: 600px;
+    height: 730px;
   }
   .container {
     width: 100%;
     height: 100%;
     position: relative;
     left: 50.1%;
-    top: 300px;
+    top: 350px;
     transform: translate3d(-50%, -50%, 0);
-    border: 1px solid #999;
   }
   .map {
     width: 100%;

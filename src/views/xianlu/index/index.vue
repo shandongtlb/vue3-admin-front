@@ -9,45 +9,33 @@
         </div>
         <div class="header-content">
           <div class="content-title"> {{ timeToFix }}，治安支队 </div>
-          <div class="content-info">案件数量统计</div>
+          <div class="content-info">辖区线路情况分析</div>
         </div>
       </div>
       <div class="header-right">
         <div class="stat-item">
-          <Statistic title="本月案件数量" :value="56" />
+          <Statistic title="派出所总数" :value="44" />
         </div>
         <div class="stat-item">
-          <Statistic title="上月案件数量" :value="47" />
+          <Statistic title="线路总数" :value="20" />
         </div>
         <div class="stat-item">
-          <Statistic title="同月上年数量" :value="77" />
+          <Statistic title="车站总数" :value="103" />
         </div>
       </div>
     </div>
 
     <a-row :gutter="20" class="home-main">
-      <a-col :span="14" class="home-left">
-        <a-card class="pending-box enter-y" title="案件类型统计" :loading="loading">
+      <a-col :span="20" class="home-left">
+        <a-card class="pending-box enter-y" title="辖区地图" :loading="loading">
           <div>
-            <Huizong />
-          </div>
-        </a-card>
-        <a-card class="project-box enter-y" title="数据比较" :loading="loading">
-          <div>
-            <Jingqing />
+            <Lemap />
           </div>
         </a-card>
       </a-col>
-      <a-col :span="10" class="home-right">
-        <a-card class="chart-box enter-y" title="能力分析" :loading="loading">
-          <div>
-            <Chart />
-          </div>
-        </a-card>
-        <a-card class="black-box enter-y" title="环比分析" :loading="loading">
-          <div>
-            <Huanbi />
-          </div>
+      <a-col :span="4" class="home-right">
+        <a-card class="chart-box enter-y" title="各所队" :loading="loading">
+          <div> </div>
         </a-card>
       </a-col>
     </a-row>
@@ -55,29 +43,20 @@
 </template>
 
 <script>
-  import { reactive, ref, onMounted } from 'vue';
+  import { ref, onMounted } from 'vue';
   import { UserOutlined } from '@ant-design/icons-vue';
   import { Statistic, Avatar } from 'ant-design-vue';
-  import Huizong from './huizong.vue';
-  import Huanbi from './huanbi.vue';
-  import Jingqing from './jingqingtongji.vue';
+  import Lemap from './lemap.vue';
   import { timeFix } from '@/utils/timefix';
-  import Chart from '@/components/Chart/nengli.vue';
   export default {
-    name: 'Anjian',
-    components: { Chart, UserOutlined, Statistic, Avatar, Huizong, Huanbi, Jingqing },
+    name: 'Xianlu',
+    components: { UserOutlined, Statistic, Avatar, Lemap },
     setup() {
       // data
       const timeFormat = timeFix();
       const timeToFix = ref(timeFormat);
       const avatarUrl = ref(require('@/assets/images/logo.png'));
       const loading = ref(true);
-      const projectData = reactive([
-        { title: '3', content: 'this is a test', userName: '3', date: '2021-07-07' },
-        { title: '2', content: 'this is a test', userName: '2', date: '2021-07-07' },
-        { title: '1', content: 'this is a test', userName: '1', date: '2021-07-07' },
-      ]);
-      const pendingData = reactive([{ title: '1', content: 'this is a test' }]);
       // mounted
       onMounted(() => {
         setTimeout(() => {
@@ -88,8 +67,6 @@
         timeToFix,
         avatarUrl,
         loading,
-        projectData,
-        pendingData,
       };
     },
   };
@@ -162,37 +139,6 @@
     .home-main {
       display: flex;
       padding: 20px;
-      .home-left {
-        .project-box {
-          .project-item {
-            cursor: pointer;
-            .card-footer {
-              display: flex;
-              justify-content: space-between;
-              color: rgba(0, 0, 0, 0.45);
-              margin-top: 8px;
-            }
-          }
-        }
-        .pending-box {
-          margin-top: 14px;
-        }
-      }
-      .home-right {
-        .chart-box {
-          margin-bottom: 20px;
-        }
-        .black-box {
-          ul {
-            padding: 0 14px;
-            li {
-              color: rgba(0, 0, 0, 0.65);
-              font-size: 14px;
-              padding: 12px 0;
-            }
-          }
-        }
-      }
     }
   }
 </style>
