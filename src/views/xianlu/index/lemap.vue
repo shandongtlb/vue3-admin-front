@@ -45,14 +45,14 @@
 <style scoped>
   .leaflet {
     width: 100%;
-    height: 730px;
+    height: 600px;
   }
   .container {
     width: 100%;
     height: 100%;
     position: relative;
     left: 50.1%;
-    top: 350px;
+    top: 300px;
     transform: translate3d(-50%, -50%, 0);
   }
   .map {
