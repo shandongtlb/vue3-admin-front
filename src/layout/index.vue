@@ -38,7 +38,7 @@
   import { useThemeStore } from '@/store/modules/projectConfig';
 
   const themeStore = useThemeStore();
-  const collapsed = ref<boolean>(false);
+  const collapsed = ref<boolean>(true);
   // 自定义侧边栏菜单收缩和展开时的宽度
   const asiderWidth = computed(() => (collapsed.value ? 80 : 220));
   const getTheme = computed(() => (themeStore.navTheme === 'light' ? 'light' : 'dark'));

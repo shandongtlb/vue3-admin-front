@@ -12,6 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     component: RouterView,
     meta: {
       title: t('routes.demo.demo'),
+      hideInMenu: true,
       icon: 'icon-zhuomian',
     },
     children: [
