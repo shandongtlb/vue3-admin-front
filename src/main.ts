@@ -5,18 +5,23 @@ import 'regenerator-runtime/runtime';
 
 import { createApp } from 'vue';
 import * as echarts from 'echarts';
+import dataV from '@jiaminghi/data-view';
 import App from './App.vue';
 import { setupRouter } from './router';
 import { setupStore } from '@/store';
 import { setupI18n } from '@/locales';
 import { setupAntd, setupAssets, setupGlobalMethods, setupCustomComponents } from '@/plugins';
+import PublicComponent from '@/components/componentInstall';
+import './assets/scss/style.scss';
+import './assets/icon/iconfont.css';
 
 if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('./mock');
   mockXHR();
 }
-
 const app = createApp(App);
+app.use(dataV);
+app.use(PublicComponent);
 app.config.globalProperties.$echarts = echarts;
 function setupPlugins() {
   // 注册全局常用的ant-design-vue组件
