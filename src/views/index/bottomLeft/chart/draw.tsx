@@ -81,7 +81,7 @@ export default defineComponent({
           ],
           series: [
             {
-              name: '贯通率',
+              name: '案件增长率',
               type: 'line',
               smooth: true,
               showAllSymbol: true,
@@ -96,7 +96,7 @@ export default defineComponent({
               data: val.rateData,
             },
             {
-              name: '已贯通',
+              name: '普裁案件',
               type: 'bar',
               barWidth: 10,
               itemStyle: {
@@ -111,7 +111,7 @@ export default defineComponent({
               data: val.barData,
             },
             {
-              name: '计划贯通',
+              name: '案件总数',
               type: 'bar',
               barGap: '-100%',
               barWidth: 10,

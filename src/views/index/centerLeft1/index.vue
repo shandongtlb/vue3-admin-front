@@ -6,7 +6,7 @@
           <i class="iconfont icon-tongji4" />
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">任务通过率</span>
+          <span class="fs-xl text mx-2">案件类型</span>
           <dv-decoration-3 class="dv-dec-3" />
         </div>
       </div>
@@ -42,20 +42,20 @@
       // 下层数据
       const dataArr = [
         {
-          number: 150,
-          text: '今日构建总量',
+          number: 12,
+          text: '今日案件总量',
         },
         {
           number: 144,
-          text: '总共完成数量',
+          text: '本月完成数量',
         },
         {
-          number: 361,
-          text: '正在编译数量',
+          number: 126,
+          text: '上月完成数量',
         },
         {
           number: 571,
-          text: '未通过数量',
+          text: '年内完成数量',
         },
       ];
       // 对应图标

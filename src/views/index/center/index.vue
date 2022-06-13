@@ -13,16 +13,16 @@
         <span>
           <i class="iconfont icon-tongji2"></i>
         </span>
-        <span class="fs-xl text mx-2 mb-1">年度负责人组件达标榜</span>
+        <span class="fs-xl text mx-2 mb-1">所队案件数量排行榜</span>
         <dv-scroll-ranking-board class="dv-scr-rank-board" :config="ranking" />
       </div>
       <div class="percent">
         <div class="item bg-color-black">
-          <span>今日任务通过率</span>
+          <span>月沿线走访完成率</span>
           <chart :tips="rate[0].tips" :color-obj="rate[0].colorData" />
         </div>
         <div class="item bg-color-black">
-          <span>今日任务达标率</span>
+          <span>走访效率</span>
           <chart :tips="rate[1].tips" :color-obj="rate[1].colorData" />
         </div>
         <div class="water">
@@ -46,28 +46,28 @@
       // 下层数据
       const titleDate = [
         {
-          number: 1020,
-          text: '今年累计任务建次数',
+          number: 10,
+          text: '今日案件数量',
         },
         {
-          number: 18,
-          text: '本月累计任务次数',
+          number: 6,
+          text: '今日线路案件数量',
         },
         {
           number: 4,
-          text: '今日累计任务次数',
+          text: '今日站区内案件数量',
         },
         {
           number: 71,
-          text: '今年失败任务次数',
+          text: '今日移交中高风险旅客数量',
         },
         {
-          number: 949,
-          text: '今年失败成功次数',
+          number: 9490,
+          text: '今日客流发送',
         },
         {
-          number: 811,
-          text: '今年达标任务个数',
+          number: 8110,
+          text: '今日客流到达',
         },
       ];
       const titleItem = reactive([]);
@@ -80,48 +80,48 @@
       const ranking = reactive({
         data: [
           {
-            name: '周口',
+            name: '青岛所',
             value: 55,
           },
           {
-            name: '南阳',
-            value: 120,
+            name: '青岛北所',
+            value: 40,
           },
           {
-            name: '西峡',
+            name: '淄博所',
             value: 78,
           },
           {
-            name: '驻马店',
+            name: '烟台所',
             value: 66,
           },
           {
-            name: '新乡',
+            name: '潍坊所',
             value: 80,
           },
           {
-            name: '新乡2',
+            name: '淄博北所',
             value: 80,
           },
           {
-            name: '新乡3',
+            name: '邹平所',
+            value: 10,
+          },
+          {
+            name: '章丘北所',
             value: 80,
           },
           {
-            name: '新乡4',
+            name: '潍坊北所',
             value: 80,
           },
           {
-            name: '新乡5',
-            value: 80,
-          },
-          {
-            name: '新乡6',
+            name: '青岛西所',
             value: 80,
           },
         ],
         carousel: 'single',
-        unit: '人',
+        unit: '起',
       });
 
       const water = reactive({

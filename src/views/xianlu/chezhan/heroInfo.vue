@@ -1,49 +1,45 @@
 <template>
-  <Card :bordered="false">
-    <Card.Grid style="width: 25%" :hoverable="false" :bordered="false">
-      <Card class="posters" :bordered="false">
-        <template #cover>
-          <Carousel arrows :dots="false">
-            <template #prevArrow>
-              <div class="custom-slick-arrow" style="left: 10px">
-                <LeftCircleOutlined />
-              </div>
-            </template>
-            <template #nextArrow>
-              <div class="custom-slick-arrow" style="right: 10px">
-                <RightCircleOutlined />
-              </div>
-            </template>
-            <template v-for="item in heroInfo.posters" :key="item">
-              <img :src="item" alt="" />
-            </template>
-          </Carousel>
-        </template>
-        <Card.Meta :title="`${heroInfo.name}  ${heroInfo.title}`">
-          <template #description>
-            <a
-              :href="`https://101.qq.com/#/hero-detail?heroid=${heroInfo.heroId}&datatype=5v5`"
-              target="_blank"
-            >
-              详细资料1
+  <div>
+    <Map style="width: 100%" />
+    <Card :bordered="false">
+      <Card.Grid style="width: 25%" :hoverable="false" :bordered="false">
+        <Card class="posters" :bordered="false">
+          <template #cover>
+            <Carousel arrows :dots="false">
+              <template #prevArrow>
+                <div class="custom-slick-arrow" style="left: 10px">
+                  <LeftCircleOutlined />
+                </div>
+              </template>
+              <template #nextArrow>
+                <div class="custom-slick-arrow" style="right: 10px">
+                  <RightCircleOutlined />
+                </div>
+              </template>
+              <template v-for="item in heroInfo.posters" :key="item">
+                <img :src="item" alt="" />
+              </template>
+            </Carousel>
+          </template>
+          <Card.Meta :title="`${heroInfo.xianlu} ${heroInfo.paichusuo} ${heroInfo.name}`">
+            <template #description> </template>
+          </Card.Meta>
+        </Card>
+      </Card.Grid>
+      <Card.Grid class="skins" style="width: 75%" :hoverable="false" :bordered="false">
+        <Carousel arrows effect="fade" dots-class="slick-dots slick-thumb">
+          <template #customPaging="props">
+            <a>
+              <img :src="heroInfo.skins[props.i]" />
             </a>
           </template>
-        </Card.Meta>
-      </Card>
-    </Card.Grid>
-    <Card.Grid class="skins" style="width: 75%" :hoverable="false" :bordered="false">
-      <Carousel arrows effect="fade" dots-class="slick-dots slick-thumb">
-        <template #customPaging="props">
-          <a>
-            <img :src="heroInfo.skins[props.i]" />
-          </a>
-        </template>
-        <div v-for="item in heroInfo.skins" :key="item">
-          <img :src="item" />
-        </div>
-      </Carousel>
-    </Card.Grid>
-  </Card>
+          <div v-for="item in heroInfo.skins" :key="item">
+            <img :src="item" />
+          </div>
+        </Carousel>
+      </Card.Grid>
+    </Card>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -51,6 +47,7 @@
   import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
   import { useRoute } from 'vue-router';
   import { Carousel, Card } from 'ant-design-vue';
+  import Map from './leamap.vue';
   import { getLolHeroInfo } from '@/api/demos/hero';
   import { useTabsViewStore } from '@/store/modules/tabsView';
 

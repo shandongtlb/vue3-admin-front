@@ -1,9 +1,6 @@
 <template>
   <div>
-    <Alert message="游戏介绍" type="info" show-icon>
-      <template #description> 英雄联盟 -- 根据数组格式的数据进行导出 </template>
-    </Alert>
-    <Card title="英雄列表mock数据" style="margin-top: 20px">
+    <Card title="沿线社区村庄数据汇总" style="margin-top: 20px">
       <DynamicTable
         size="small"
         bordered
@@ -20,7 +17,7 @@
 
 <script lang="ts" setup>
   import { useRouter } from 'vue-router';
-  import { Alert, Card } from 'ant-design-vue';
+  import { Card } from 'ant-design-vue';
   import { columns } from './columns';
   import { useTable } from '@/components/core/dynamic-table';
   import { getLolHeroList } from '@/api/demos/hero';

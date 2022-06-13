@@ -159,7 +159,7 @@ const routes: Array<RouteRecordRaw> = [
             path: 'lol/:id',
             name: `${moduleName}-table-lol-info`,
             meta: {
-              title: '英雄详情',
+              title: '村庄详情',
               icon: 'icon-zhuomian',
               hideInMenu: true,
               keepAlive: true,
@@ -167,7 +167,7 @@ const routes: Array<RouteRecordRaw> = [
             },
             component: () =>
               import(
-                /* webpackChunkName: "lol-info-table" */ '@/views/demos/tables/lol-table/heroInfo.vue'
+                /* webpackChunkName: "lol-info-table" */ '@/views/xianlu/chezhan/heroInfo.vue'
               ),
           },
         ],

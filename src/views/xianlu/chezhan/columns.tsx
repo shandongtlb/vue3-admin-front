@@ -1,42 +1,36 @@
-import { Tag } from 'ant-design-vue';
 import type { TableColumn } from '@/components/core/dynamic-table';
 import router from '@/router';
-import ImagePreview from '@/components/basic/image-preview/index';
 
 export const columns: TableColumn[] = [
   {
-    title: '头像1',
-    align: 'center',
-    width: 100,
-    hideInSearch: true,
-    dataIndex: 'avatar',
-    bodyCell: ({ record }) => (
-      <ImagePreview src={record.avatar} preview={{ src: record.posters }} key={record.avatar} />
-    ),
-  },
-  {
-    title: '英雄名称',
-    align: 'center',
-    dataIndex: 'title',
-  },
-  {
-    title: '英雄称号',
+    title: '村庄名称',
     align: 'center',
     dataIndex: 'name',
   },
   {
-    title: '定位',
+    title: '所属派出所',
     align: 'center',
-    dataIndex: 'roles',
-    bodyCell: ({ record }) => (
-      <>
-        {record.roles?.map((name) => (
-          <Tag color={'blue'} key={name}>
-            {name}
-          </Tag>
-        ))}
-      </>
-    ),
+    dataIndex: 'paichusuo',
+  },
+  {
+    title: '所属线路',
+    align: 'center',
+    dataIndex: 'xianlu',
+  },
+  {
+    title: '临近里程',
+    align: 'center',
+    dataIndex: 'licheng',
+  },
+  {
+    title: '负责人',
+    align: 'center',
+    dataIndex: 'fuze',
+  },
+  {
+    title: '联系方式',
+    align: 'center',
+    dataIndex: 'call',
   },
   {
     title: '操作',

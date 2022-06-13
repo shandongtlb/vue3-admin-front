@@ -5,7 +5,7 @@
         <span>
           <i class="iconfont icon-align-left" />
         </span>
-        <span class="fs-xl text mx-2">产品销售渠道分析</span>
+        <span class="fs-xl text mx-2">线路警情分析</span>
       </div>
       <div class="d-flex ai-center flex-column body-box">
         <dv-capsule-chart class="dv-cap-chart" :config="config" />
@@ -28,23 +28,23 @@
       const config = reactive({
         data: [
           {
-            name: '南阳',
+            name: '非法挖掘坑穴',
             value: 167,
           },
           {
-            name: '周口',
+            name: '护网进人',
             value: 67,
           },
           {
-            name: '漯河',
+            name: '损坏铁路设施',
             value: 123,
           },
           {
-            name: '郑州',
+            name: '危害电气化铁路设备',
             value: 55,
           },
           {
-            name: '西峡',
+            name: '其他警情',
             value: 98,
           },
         ],

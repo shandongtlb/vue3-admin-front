@@ -46,7 +46,7 @@ export type ThemeState = {
 export const defaultConfig: ThemeState = {
   navTheme: 'dark', // theme for nav menu
   primaryColor: 'rgb(24, 144, 255)', // '#F5222D', // primary color of ant design
-  layout: 'sidemenu', // nav menu position: `sidemenu` or `topmenu`
+  layout: 'topmenu', // nav menu position: `sidemenu` or `topmenu`
   contentWidth: 'Fluid', // layout of content: `Fluid` or `Fixed`, only works when layout is topmenu
   fixedHeader: false, // sticky header
   fixSiderbar: false, // sticky siderbar

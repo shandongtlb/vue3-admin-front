@@ -6,7 +6,7 @@
           <i class="iconfont icon-layer-group" />
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">地图数据</span>
+          <span class="fs-xl text mx-2">疫情地图预警</span>
           <dv-decoration-1 class="dv-dec-1" />
         </div>
       </div>

@@ -6,7 +6,7 @@
           <i class="iconfont icon-vector" />
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">任务完成排行榜</span>
+          <span class="fs-xl text mx-2">治安规范性文件</span>
         </div>
       </div>
       <div class="d-flex mt-1 jc-center body-box">
@@ -22,18 +22,18 @@
   export default defineComponent({
     setup() {
       const config = reactive({
-        header: ['组件', '分支', '覆盖率'],
+        header: ['组件', '日期', '点击率'],
         data: [
-          ['组件1', 'dev-1', "<span  class='colorGrass'>↑75%</span>"],
-          ['组件2', 'dev-2', "<span  class='colorRed'>↓33%</span>"],
-          ['组件3', 'dev-3', "<span  class='colorGrass'>↑100%</span>"],
-          ['组件4', 'rea-1', "<span  class='colorGrass'>↑94%</span>"],
-          ['组件5', 'rea-2', "<span  class='colorGrass'>↑95%</span>"],
-          ['组件6', 'fix-2', "<span  class='colorGrass'>↑63%</span>"],
-          ['组件7', 'fix-4', "<span  class='colorGrass'>↑84%</span>"],
-          ['组件8', 'fix-7', "<span  class='colorRed'>↓46%</span>"],
-          ['组件9', 'dev-2', "<span  class='colorRed'>↓13%</span>"],
-          ['组件10', 'dev-9', "<span  class='colorGrass'>↑76%</span>"],
+          ['文件1', 'dev-1', "<span  class='colorGrass'>↑75%</span>"],
+          ['文件2', 'dev-2', "<span  class='colorRed'>↓33%</span>"],
+          ['文件3', 'dev-3', "<span  class='colorGrass'>↑100%</span>"],
+          ['文件4', 'rea-1', "<span  class='colorGrass'>↑94%</span>"],
+          ['文件5', 'rea-2', "<span  class='colorGrass'>↑95%</span>"],
+          ['文件6', 'fix-2', "<span  class='colorGrass'>↑63%</span>"],
+          ['文件7', 'fix-4', "<span  class='colorGrass'>↑84%</span>"],
+          ['文件8', 'fix-7', "<span  class='colorRed'>↓46%</span>"],
+          ['文件9', 'dev-2', "<span  class='colorRed'>↓13%</span>"],
+          ['文件10', 'dev-9', "<span  class='colorGrass'>↑76%</span>"],
         ],
         rowNum: 7, //表格行数
         headerHeight: 35,

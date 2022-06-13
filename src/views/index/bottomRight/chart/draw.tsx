@@ -115,7 +115,7 @@ export default defineComponent({
             itemGap: 15,
             itemWidth: 12,
             itemHeight: 12,
-            data: ['平均指标', '我的指标'],
+            data: ['当年统计', '上年比较'],
             textStyle: {
               color: '#fff',
               fontSize: 14,
@@ -155,19 +155,19 @@ export default defineComponent({
             },
             indicator: [
               {
-                name: '服务态度',
+                name: '安检查危',
                 max: val.maxData,
               },
               {
-                name: '产品质量',
+                name: '线路案件',
                 max: 10,
               },
               {
-                name: '任务效率',
+                name: '进站查缉',
                 max: 12,
               },
               {
-                name: '售后保障',
+                name: '数据研判',
                 max: 3.5,
               },
             ],
