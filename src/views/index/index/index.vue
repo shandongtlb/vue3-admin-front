@@ -86,6 +86,7 @@
 
 <script lang="ts">
   // @ts-nocheck
+  /* eslint-disable */
   import { defineComponent, ref, reactive, onMounted, onUnmounted } from 'vue';
   import CenterLeft1 from '../centerLeft1/index.vue';
   import CenterLeft2 from '../centerLeft2/index.vue';
