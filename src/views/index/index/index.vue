@@ -43,6 +43,15 @@
 
         <div class="body-box">
           <!-- 第三行数据 -->
+          <div class="bototm-box">
+            <dv-border-box-13>
+              <bottom-right />
+            </dv-border-box-13>
+            <dv-border-box-12>
+              <bottom-left />
+            </dv-border-box-12>
+          </div>
+          <!-- 第四行数据 -->
           <div class="content-box">
             <div>
               <dv-border-box-12>
@@ -51,7 +60,7 @@
             </div>
             <div>
               <dv-border-box-12>
-                <center-left2 />
+                <center-right1 />
               </dv-border-box-12>
             </div>
             <!-- 中间 -->
@@ -59,24 +68,14 @@
               <center />
             </div>
             <!-- 中间 -->
-            <div>
+            <dv-border-box-12>
               <center-right1 />
-            </div>
+            </dv-border-box-12>
             <div>
               <dv-border-box-13>
                 <center-right2 />
               </dv-border-box-13>
             </div>
-          </div>
-
-          <!-- 第四行数据 -->
-          <div class="bototm-box">
-            <dv-border-box-13>
-              <bottom-left />
-            </dv-border-box-13>
-            <dv-border-box-12>
-              <bottom-right />
-            </dv-border-box-12>
           </div>
         </div>
       </div>
@@ -89,7 +88,6 @@
   /* eslint-disable */
   import { defineComponent, ref, reactive, onMounted, onUnmounted } from 'vue';
   import CenterLeft1 from '../centerLeft1/index.vue';
-  import CenterLeft2 from '../centerLeft2/index.vue';
   import Center from '../center/index.vue';
   import CenterRight1 from '../centerRight1/index.vue';
   import CenterRight2 from '../centerRight2/index.vue';
@@ -103,7 +101,6 @@
     name: 'Home',
     components: {
       CenterLeft1,
-      CenterLeft2,
       Center,
       CenterRight1,
       CenterRight2,

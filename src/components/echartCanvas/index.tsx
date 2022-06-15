@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { defineComponent, onMounted, ref, watch, onBeforeUnmount } from 'vue';
-import '@/common/echart/map/fujian.js';
+import '@/common/echart/map/shandong.js';
 import * as echarts from 'echarts';
 import theme from '@/common/echart/style/theme.js'; // 引入默认主题
 
