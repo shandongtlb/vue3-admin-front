@@ -1,7 +1,7 @@
 import type { FormSchema } from '@/components/core/schema-form/';
 import { getRoleList } from '@/api/system/role';
 
-export const deptSchemas: FormSchema<API.CreateDeptParams>[] = [
+export const deptSchemas: FormSchema<API.CreateDeptDataParams>[] = [
   {
     field: 'name',
     component: 'Input',
@@ -30,7 +30,7 @@ export const deptSchemas: FormSchema<API.CreateDeptParams>[] = [
   },
 ];
 
-export const userSchemas: FormSchema<API.CreateUserParams>[] = [
+export const userSchemas: FormSchema<API.CreateDataParams>[] = [
   {
     field: 'departmentId',
     component: 'TreeSelect',

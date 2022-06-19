@@ -152,7 +152,7 @@
   /**
    * @description 打开部门弹窗
    */
-  const openDeptModal = async (record: Partial<API.SysDeptListResult> = {}) => {
+  const openDeptModal = async (record: Partial<API.SysDeptDataListResult> = {}) => {
     console.log('record', record);
 
     const [formRef] = await showModal<any>({

@@ -1,7 +1,7 @@
 import { Avatar, Space, Tag } from 'ant-design-vue';
 import type { TableColumn } from '@/components/core/dynamic-table';
 
-export type TableListItem = API.UserListPageResultItem;
+export type TableListItem = API.DataListPageResultItem;
 export type TableColumnItem = TableColumn<TableListItem>;
 
 export const baseColumns: TableColumnItem[] = [
