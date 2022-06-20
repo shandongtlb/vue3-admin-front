@@ -70,13 +70,7 @@
           >
             <SwapOutlined /> 转移
           </a-button>
-          <a-button
-            type="danger"
-            :disabled="!isCheckRows || !$auth('sys.user.delete')"
-            @click="delRowConfirm(rowSelection.selectedRowKeys)"
-          >
-            <DeleteOutlined /> 删除
-          </a-button>
+          <a-button type="primary" @click="openExportModal">批量导出 </a-button>
         </template>
       </DynamicTable>
     </template>
@@ -116,6 +110,7 @@
   } from '@/api/system/deptdata';
   import { useFormModal } from '@/hooks/useModal/index';
   import { TreeDataItem, formatDept2Tree, findChildById } from '@/core/permission/utils';
+  import { useExportExcelModal, jsonToSheetXlsx } from '@/components/basic/excel';
 
   defineOptions({
     name: 'SystemData',
@@ -145,7 +140,22 @@
       rowSelection.value.selectedRowKeys = selectedRowKeys;
     },
   });
-
+  const exportExcelModal = useExportExcelModal();
+  let tableData: any[] = [];
+  const openExportModal = () => {
+    exportExcelModal.openModal({
+      onOk: ({ filename, bookType }) => {
+        // 默认Object.keys(data[0])作为header
+        jsonToSheetXlsx({
+          data: tableData,
+          filename,
+          write2excelOpts: {
+            bookType,
+          },
+        });
+      },
+    });
+  };
   // 是否勾选了表格行
   const isCheckRows = computed(() => rowSelection.value.selectedRowKeys.length);
 
@@ -336,6 +346,7 @@
       limit,
       departmentIds: state.departmentIds.length ? state.departmentIds : undefined,
     });
+    tableData = data.list;
     rowSelection.value.selectedRowKeys = [];
     return data;
   };
