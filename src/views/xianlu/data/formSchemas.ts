@@ -1,5 +1,5 @@
 import type { FormSchema } from '@/components/core/schema-form/';
-import { getRoleList } from '@/api/system/role';
+import { getRoledataList } from '@/api/system/roledata';
 
 export const deptSchemas: FormSchema<API.CreateDeptDataParams>[] = [
   {
@@ -48,7 +48,7 @@ export const userSchemas: FormSchema<API.CreateDataParams>[] = [
     componentProps: {
       mode: 'multiple',
       request: async () => {
-        const data = await getRoleList();
+        const data = await getRoledataList();
         return data.map((n) => ({ label: n.name, value: n.id }));
       },
     },
