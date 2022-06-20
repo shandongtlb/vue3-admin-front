@@ -1,0 +1,16 @@
+server {
+        #nginx代理端口
+        listen       9090;
+        
+        #nginx代理名称，可以写域名或者ip，也可以写多个
+        server_name  localhost;
+        
+        root   C:/Users/Administrator/Desktop/百度离线地图项目/bmap/;#百度离线的路经 用于nginx代理访问 相对于当前服务的位置
+        
+        location / {
+            # 跨域问题
+            add_header Access-Control-Allow-Origin *;
+            add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+            add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+        }
+        add_header Cache-Control "no-cache,must-revalidate"; #解决缓存问题
