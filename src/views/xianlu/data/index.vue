@@ -2,10 +2,10 @@
   <SplitPanel>
     <template #left-content>
       <div class="flex justify-between">
-        <div>组织架构</div>
+        <div>基础信息分类</div>
         <Space>
           <Tooltip v-if="$auth('sys.dept.add')" placement="top">
-            <template #title>新增部门 </template>
+            <template #title>新增类型 </template>
             <PlusOutlined @click="openDeptModal({})" />
           </Tooltip>
           <Tooltip placement="top">
@@ -43,9 +43,9 @@
     </template>
     <template #right-content>
       <DynamicTable
-        header-title="用户管理"
+        header-title="项目管理"
         show-index
-        title-tooltip="请不要随意删除用户，避免到影响其他用户的使用。"
+        title-tooltip="请不要随意删除。"
         :data-request="loadTableData"
         :columns="columns"
         :scroll="{ x: 2000 }"
@@ -63,14 +63,8 @@
           <a-button type="primary" :disabled="!$auth('sys.user.add')" @click="openUserModal({})">
             <PlusOutlined /> 新增
           </a-button>
-          <a-button
-            type="success"
-            :disabled="!isCheckRows || !$auth('sys.dept.transfer')"
-            @click="openTransferUserModal"
-          >
-            <SwapOutlined /> 转移
-          </a-button>
-          <a-button type="primary" @click="openExportModal">批量导出 </a-button>
+          <ImpExcel />
+          <a-button type="success" @click="openExportModal"> <SwapOutlined /> 批量导出 </a-button>
         </template>
       </DynamicTable>
     </template>
@@ -88,7 +82,7 @@
     SwapOutlined,
   } from '@ant-design/icons-vue';
   import { Tree, Dropdown, Space, Tooltip, Modal, Alert, Menu } from 'ant-design-vue';
-  import { userSchemas, deptSchemas, updatePswSchemas, transferUserSchemas } from './formSchemas';
+  import { userSchemas, deptSchemas, updatePswSchemas } from './formSchemas';
   import { baseColumns, type TableListItem, type TableColumnItem } from './columns';
   import type { LoadDataParams } from '@/components/core/dynamic-table';
   import { SplitPanel } from '@/components/basic/split-panel';
@@ -106,12 +100,10 @@
     deleteDeptData,
     updateDeptData,
     getDeptDataList,
-    transferDeptData,
   } from '@/api/system/deptdata';
   import { useFormModal } from '@/hooks/useModal/index';
   import { TreeDataItem, formatDept2Tree, findChildById } from '@/core/permission/utils';
-  import { useExportExcelModal, jsonToSheetXlsx } from '@/components/basic/excel';
-
+  import { useExportExcelModal, jsonToSheetXlsx, ImpExcel } from '@/components/basic/excel';
   defineOptions({
     name: 'SystemData',
   });
@@ -167,10 +159,10 @@
 
     const [formRef] = await showModal<any>({
       modalProps: {
-        title: `${record.id ? '编辑' : '新增'}部门`,
+        title: `${record.id ? '编辑' : '新增'}类型`,
         width: 700,
         onFinish: async (values) => {
-          console.log('新增/编辑部门', values);
+          console.log('新增/编辑类型', values);
           values.id = record.id;
           await (record.id ? updateDeptData : createDeptData)(values);
           fetchDeptDataList();
@@ -207,31 +199,6 @@
   /**
    * @description 将选中的用户转移至某部门
    */
-  const openTransferUserModal = async () => {
-    const [formRef] = await showModal({
-      modalProps: {
-        title: '转移部门',
-        width: 700,
-        onFinish: async (values) => {
-          await transferDeptData({
-            departmentId: values.departmentId,
-            userIds: rowSelection.value.selectedRowKeys.map((n) => n),
-          });
-        },
-      },
-      formProps: {
-        labelWidth: 100,
-        schemas: transferUserSchemas,
-      },
-    });
-
-    formRef?.updateSchema([
-      {
-        field: 'departmentId',
-        componentProps: { treeData: state.deptTree },
-      },
-    ]);
-  };
 
   /**
    * @description 打开用户弹窗
@@ -239,10 +206,10 @@
   const openUserModal = async (record: Partial<TableListItem> = {}) => {
     const [formRef] = await showModal<any>({
       modalProps: {
-        title: `${record.id ? '编辑' : '新增'}用户`,
+        title: `${record.id ? '编辑' : '新增'}内容`,
         width: 700,
         onFinish: async (values) => {
-          console.log('新增/编辑用户', values);
+          console.log('新增/编辑内容', values);
           values.id = record.id;
           await (record.id ? updateData : createData)(values);
           dynamicTableInstance?.reload();
@@ -302,7 +269,6 @@
       },
     });
   };
-
   /**
    * 获取部门列表
    */
@@ -319,7 +285,7 @@
   const delRowConfirm = async (userId: number | number[]) => {
     if (Array.isArray(userId)) {
       Modal.confirm({
-        title: '确定要删除所选的用户吗?',
+        title: '确定要删除所选的内容吗?',
         icon: <ExclamationCircleOutlined />,
         centered: true,
         onOk: async () => {
@@ -369,13 +335,13 @@
           onClick: () => openUserModal(record),
         },
         {
-          label: '改密',
+          label: '详情',
           auth: 'sys.user.password',
           onClick: () => openUpdatePasswordModal(record),
         },
         {
           label: '删除',
-          auth: 'sys.user.delete',
+          auth: 'sys.data.delete',
           popConfirm: {
             title: '你确定要删除吗？',
             onConfirm: () => delRowConfirm(record.id),

@@ -1,4 +1,4 @@
-import { Avatar, Space, Tag } from 'ant-design-vue';
+import { Space, Tag } from 'ant-design-vue';
 import type { TableColumn } from '@/components/core/dynamic-table';
 
 export type TableListItem = API.DataListPageResultItem;
@@ -6,33 +6,20 @@ export type TableColumnItem = TableColumn<TableListItem>;
 
 export const baseColumns: TableColumnItem[] = [
   {
-    title: '头像',
-    width: 80,
-    dataIndex: 'headImg',
-    hideInSearch: true,
-    bodyCell: ({ record }) => <Avatar src={record.headImg} />,
-  },
-  {
-    title: '姓名',
+    title: '名称',
     width: 120,
     dataIndex: 'name',
     align: 'center',
   },
   {
-    title: '用户名',
-    width: 120,
-    align: 'center',
-    dataIndex: 'username',
-  },
-  {
-    title: '所在部门',
+    title: '类型',
     dataIndex: 'departmentName',
     hideInSearch: true,
     align: 'center',
     width: 180,
   },
   {
-    title: '所属角色',
+    title: '关联线路',
     dataIndex: 'roleNames',
     align: 'center',
     hideInSearch: true,
@@ -49,28 +36,28 @@ export const baseColumns: TableColumnItem[] = [
     ),
   },
   {
-    title: '呢称',
+    title: '线路方位',
     width: 120,
     align: 'center',
     dataIndex: 'nickName',
   },
   {
-    title: '邮箱',
+    title: '所属单位/所在行政区域',
     width: 120,
     align: 'center',
     dataIndex: 'email',
   },
   {
-    title: '手机',
-    width: 120,
-    align: 'center',
-    dataIndex: 'phone',
-  },
-  {
-    title: '备注',
+    title: '负责人',
     width: 120,
     align: 'center',
     dataIndex: 'remark',
+  },
+  {
+    title: '联系方式',
+    width: 120,
+    align: 'center',
+    dataIndex: 'phone',
   },
   {
     title: '状态',
@@ -81,11 +68,11 @@ export const baseColumns: TableColumnItem[] = [
       componentProps: {
         options: [
           {
-            label: '启用',
+            label: '正常',
             value: 1,
           },
           {
-            label: '禁用',
+            label: '异常',
             value: 0,
           },
         ],
@@ -94,28 +81,6 @@ export const baseColumns: TableColumnItem[] = [
     bodyCell: ({ record }) => {
       const isEnable = record.status === 1;
       return <Tag color={isEnable ? 'success' : 'red'}>{isEnable ? '启用' : '禁用'}</Tag>;
-    },
-  },
-  {
-    title: '创建时间',
-    dataIndex: 'createdAt',
-    width: 120,
-    formItemProps: {
-      component: 'DatePicker',
-      componentProps: {
-        class: 'w-full',
-      },
-    },
-  },
-  {
-    title: '修改时间',
-    dataIndex: 'updatedAt',
-    width: 120,
-    formItemProps: {
-      component: 'DatePicker',
-      componentProps: {
-        class: 'w-full',
-      },
     },
   },
 ];
