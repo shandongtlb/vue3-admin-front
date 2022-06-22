@@ -1,10 +1,10 @@
 import { Space, Tag } from 'ant-design-vue';
 import type { TableColumn } from '@/components/core/dynamic-table';
 
-export type TableListItem = API.DataListPageResultItem;
-export type TableColumnItem = TableColumn<TableListItem>;
+export type TablexqItem = API.DataListPageResultItem;
+export type TableXqItem = TableColumn<TablexqItem>;
 
-export const baseColumns: TableColumnItem[] = [
+export const baseColumnsxq: TableXqItem[] = [
   {
     title: '名称',
     width: 120,

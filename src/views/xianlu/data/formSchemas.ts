@@ -5,7 +5,7 @@ export const deptSchemas: FormSchema<API.CreateDeptDataParams>[] = [
   {
     field: 'name',
     component: 'Input',
-    label: '部门名称',
+    label: '名称',
     rules: [{ required: true, type: 'string' }],
   },
   {
@@ -34,7 +34,7 @@ export const userSchemas: FormSchema<API.CreateDataParams>[] = [
   {
     field: 'departmentId',
     component: 'TreeSelect',
-    label: '所属部门',
+    label: '类型',
     componentProps: {
       getPopupContainer: () => document.body,
     },
@@ -43,7 +43,7 @@ export const userSchemas: FormSchema<API.CreateDataParams>[] = [
   {
     field: 'roles',
     component: 'Select',
-    label: '所属角色',
+    label: '关联标签',
     rules: [{ required: true, type: 'array' }],
     componentProps: {
       mode: 'multiple',
@@ -56,13 +56,13 @@ export const userSchemas: FormSchema<API.CreateDataParams>[] = [
   {
     field: 'username',
     component: 'Input',
-    label: '用户名',
+    label: '拼音简写',
     rules: [{ required: true }],
   },
   {
     field: 'name',
     component: 'Input',
-    label: '姓名',
+    label: '名称',
     colProps: {
       span: 12,
     },
@@ -71,7 +71,7 @@ export const userSchemas: FormSchema<API.CreateDataParams>[] = [
   {
     field: 'nickName',
     component: 'Input',
-    label: '呢称',
+    label: '线路方位',
     colProps: {
       span: 12,
     },
@@ -79,7 +79,7 @@ export const userSchemas: FormSchema<API.CreateDataParams>[] = [
   {
     field: 'email',
     component: 'Input',
-    label: '邮箱',
+    label: '所属单位/所在行政区域',
     colProps: {
       span: 12,
     },
@@ -87,7 +87,7 @@ export const userSchemas: FormSchema<API.CreateDataParams>[] = [
   {
     field: 'phone',
     component: 'Input',
-    label: '手机',
+    label: '联系方式',
     colProps: {
       span: 12,
     },
@@ -95,7 +95,7 @@ export const userSchemas: FormSchema<API.CreateDataParams>[] = [
   {
     field: 'remark',
     component: 'InputTextArea',
-    label: '备注',
+    label: '负责人',
   },
   {
     field: 'status',
@@ -105,11 +105,11 @@ export const userSchemas: FormSchema<API.CreateDataParams>[] = [
     componentProps: {
       options: [
         {
-          label: '启用',
+          label: '正常',
           value: 1,
         },
         {
-          label: '禁用',
+          label: '异常',
           value: 0,
         },
       ],

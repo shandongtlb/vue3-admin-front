@@ -64,7 +64,7 @@
             <PlusOutlined /> 新增
           </a-button>
           <ImpExcel />
-          <a-button type="success" @click="openExportModal"> <SwapOutlined /> 批量导出 </a-button>
+          <a-button type="success" @click="openExportModal"> 批量导出 </a-button>
         </template>
       </DynamicTable>
     </template>
@@ -79,7 +79,6 @@
     EditOutlined,
     DeleteOutlined,
     ExclamationCircleOutlined,
-    SwapOutlined,
   } from '@ant-design/icons-vue';
   import { Tree, Dropdown, Space, Tooltip, Modal, Alert, Menu } from 'ant-design-vue';
   import { userSchemas, deptSchemas, updatePswSchemas } from './formSchemas';
@@ -321,7 +320,7 @@
     ...baseColumns,
     {
       title: '操作',
-      width: 230,
+      width: 150,
       dataIndex: '$action',
       align: 'center',
       fixed: 'right',

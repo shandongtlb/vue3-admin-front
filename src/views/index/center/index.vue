@@ -46,28 +46,28 @@
       // 下层数据
       const titleDate = [
         {
-          number: 10,
-          text: '今日案件数量',
+          number: 50,
+          text: '本周案件数量',
         },
         {
-          number: 6,
-          text: '今日线路案件数量',
+          number: 11,
+          text: '本周线路案件数量',
         },
         {
-          number: 4,
-          text: '今日站区内案件数量',
+          number: 24,
+          text: '本周站区内案件数量',
         },
         {
-          number: 71,
-          text: '今日移交中高风险旅客数量',
+          number: 371,
+          text: '本周移交中高风险旅客数量',
         },
         {
-          number: 9490,
-          text: '今日客流发送',
+          number: 29490,
+          text: '本周客流发送',
         },
         {
-          number: 8110,
-          text: '今日客流到达',
+          number: 28110,
+          text: '本周客流到达',
         },
       ];
       const titleItem = reactive([]);

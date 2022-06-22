@@ -8,7 +8,9 @@
       @change="handleInputClick"
     />
     <div @click="handleUpload">
-      <slot></slot>
+      <slot>
+        <a-button type="danger">批量导入</a-button>
+      </slot>
     </div>
   </div>
 </template>
