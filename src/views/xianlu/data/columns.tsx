@@ -42,7 +42,7 @@ export const baseColumns: TableColumnItem[] = [
     dataIndex: 'nickName',
   },
   {
-    title: '所属单位/所在行政区域',
+    title: '关联派出所',
     width: 120,
     align: 'center',
     dataIndex: 'email',
@@ -80,7 +80,7 @@ export const baseColumns: TableColumnItem[] = [
     },
     bodyCell: ({ record }) => {
       const isEnable = record.status === 1;
-      return <Tag color={isEnable ? 'success' : 'red'}>{isEnable ? '启用' : '禁用'}</Tag>;
+      return <Tag color={isEnable ? 'success' : 'red'}>{isEnable ? '正常' : '异常'}</Tag>;
     },
   },
 ];

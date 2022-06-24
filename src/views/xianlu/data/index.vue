@@ -81,7 +81,7 @@
     ExclamationCircleOutlined,
   } from '@ant-design/icons-vue';
   import { Tree, Dropdown, Space, Tooltip, Modal, Alert, Menu } from 'ant-design-vue';
-  import { userSchemas, deptSchemas, updatePswSchemas } from './formSchemas';
+  import { userSchemas, deptSchemas, xqSchemas } from './formSchemas';
   import { baseColumns, type TableListItem, type TableColumnItem } from './columns';
   import type { LoadDataParams } from '@/components/core/dynamic-table';
   import { SplitPanel } from '@/components/basic/split-panel';
@@ -92,7 +92,6 @@
     getDataInfo,
     createData,
     updateData,
-    updateDataPassword,
   } from '@/api/system/data';
   import {
     createDeptData,
@@ -238,23 +237,42 @@
     }
   };
 
-  const openUpdatePasswordModal = async (record: TableListItem) => {
-    await showModal({
+  /**
+   * @description 打开用户弹窗
+   */
+  const openXQModal = async (record: Partial<TableListItem> = {}) => {
+    const [formRef] = await showModal<any>({
       modalProps: {
-        title: `修改密码(${record.username})`,
-        width: 700,
+        title: `详细情况`,
+        width: 800,
         onFinish: async (values) => {
-          await updateDataPassword({
-            userId: record.id,
-            password: values.password,
-          });
+          console.log(formRef);
+          values.id = record.id;
+          dynamicTableInstance?.reload();
         },
       },
       formProps: {
         labelWidth: 100,
-        schemas: updatePswSchemas,
+        schemas: xqSchemas,
       },
     });
+
+    formRef?.updateSchema([
+      {
+        field: 'departmentId',
+        componentProps: {
+          treeDefaultExpandedKeys:
+            findChildById(record?.departmentId, state.deptTree)?.keyPath || [],
+          treeData: state.deptTree,
+        },
+      },
+    ]);
+
+    formRef?.setFieldsValue(record);
+    if (record?.id) {
+      const { roles } = await getDataInfo({ userId: record.id });
+      formRef?.setFieldsValue({ roles });
+    }
   };
 
   const delDept = (departmentId: number) => {
@@ -320,23 +338,18 @@
     ...baseColumns,
     {
       title: '操作',
-      width: 150,
+      width: 140,
       dataIndex: '$action',
       align: 'center',
       fixed: 'right',
       actions: ({ record }) => [
         {
-          label: '编辑',
+          label: '详细情况',
           auth: {
             perm: 'sys.user.update',
             effect: 'disable',
           },
-          onClick: () => openUserModal(record),
-        },
-        {
-          label: '详情',
-          auth: 'sys.user.password',
-          onClick: () => openUpdatePasswordModal(record),
+          onClick: () => openXQModal(record),
         },
         {
           label: '删除',
