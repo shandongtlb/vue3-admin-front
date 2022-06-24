@@ -7,4 +7,5 @@ export default {
   'views/anjian/demo1': () => import('@/views/anjian/home/jingqingtongji.vue'),
   'views/anjian/demo2': () => import('@/views/anjian/home/huanbi.vue'),
   'views/anjian/index': () => import('@/views/anjian/home/index.vue'),
+  'views/anjian/jq': () => import('@/views/xljqindex/index/index.vue'),
 };
