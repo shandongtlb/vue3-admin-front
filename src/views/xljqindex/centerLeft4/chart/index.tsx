@@ -9,16 +9,11 @@ export default defineComponent({
   setup() {
     const intervalInstance = null;
     const cdata = reactive({
-      xData: ['抄近道', '挖野菜', '砍伐', '穿顶管', '抓蝎子', '看火车', '顺线行走', '其他'],
+      xData: ['0-18', '18-60', '60以上'],
       seriesData: [
-        { value: 10, name: '抄近道' },
-        { value: 60, name: '挖野菜' },
-        { value: 15, name: '砍伐' },
-        { value: 25, name: '穿顶管' },
-        { value: 60, name: '抓蝎子' },
-        { value: 35, name: '看火车' },
-        { value: 5, name: '顺线行走' },
-        { value: 40, name: '其他' },
+        { value: 10, name: '0-18' },
+        { value: 5, name: '18-60' },
+        { value: 15, name: '60以上' },
       ],
     });
 

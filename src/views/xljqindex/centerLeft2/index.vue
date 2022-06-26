@@ -6,7 +6,7 @@
           <i class="iconfont icon-tongji4" />
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">网内进人事由</span>
+          <span class="fs-xl text mx-2">进入人员类型</span>
           <dv-decoration-3 class="dv-dec-3" />
         </div>
       </div>

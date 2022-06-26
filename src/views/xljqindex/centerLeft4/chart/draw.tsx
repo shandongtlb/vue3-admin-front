@@ -29,16 +29,6 @@ export default defineComponent({
       () => props.cdata,
       (val: any) => {
         options = {
-          color: [
-            '#37a2da',
-            '#32c5e9',
-            '#9fe6b8',
-            '#ffdb5c',
-            '#ff9f7f',
-            '#fb7293',
-            '#e7bcf3',
-            '#8378ea',
-          ],
           tooltip: {
             trigger: 'item',
             formatter: '{a} <br/>{b} : {c} ({d}%)',
@@ -59,10 +49,9 @@ export default defineComponent({
           },
           series: [
             {
-              name: '网内进人事由',
+              name: '挡道人员年龄',
               type: 'pie',
               radius: [1, 70],
-              roseType: 'area',
               center: ['50%', '40%'],
               itemStyle: {
                 borderRadius: 5,

@@ -59,10 +59,9 @@ export default defineComponent({
           },
           series: [
             {
-              name: '网内进人事由',
+              name: '进入人员类型',
               type: 'pie',
               radius: [1, 70],
-              roseType: 'area',
               center: ['50%', '40%'],
               itemStyle: {
                 borderRadius: 5,

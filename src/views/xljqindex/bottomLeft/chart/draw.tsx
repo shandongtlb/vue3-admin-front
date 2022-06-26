@@ -143,7 +143,7 @@ export default defineComponent({
     );
 
     return () => {
-      const height = '450px';
+      const height = '420px';
       const width = '100%';
 
       return (

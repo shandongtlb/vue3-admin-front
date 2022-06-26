@@ -32,6 +32,7 @@
       const initChart = () => {
         chart.value = echarts.init(document.getElementById(props.id));
         chart.value.setOption({
+          backgroundColor: '#fff',
           title: {
             text: '',
           },
@@ -43,21 +44,20 @@
               },
             },
             indicator: [
-              { name: '数据研判', max: 6 },
-              { name: '安检', max: 16 },
-              { name: '进站查缉', max: 30 },
-              { name: '线路防护', max: 38 },
-              { name: '内保', max: 25 },
+              { name: '数据研判', max: 100 },
+              { name: '安检', max: 100 },
+              { name: '进站查缉', max: 100 },
+              { name: '线路巡护', max: 100 },
+              { name: '内保', max: 100 },
             ],
           },
           series: [
             {
               type: 'radar',
-              backgroundColor: '#7B7DDC',
               data: [
                 {
                   name: '占比',
-                  value: [5, 12, 21, 21, 6],
+                  value: [50, 75, 20, 55, 30],
                   itemStyle: {
                     color: '#188FFD',
                   },

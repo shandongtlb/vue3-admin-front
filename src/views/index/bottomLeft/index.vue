@@ -1,5 +1,5 @@
 <template>
-  <div class="bottomLeft">
+  <div class="bottomLeft2">
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
@@ -28,9 +28,9 @@
 </script>
 
 <style lang="scss" scoped>
-  $box-height: 520px;
+  $box-height: 260px;
   $box-width: 100%;
-  .bottomLeft {
+  .bottomLeft2 {
     padding: 20px 16px;
     height: $box-height;
     width: $box-width;

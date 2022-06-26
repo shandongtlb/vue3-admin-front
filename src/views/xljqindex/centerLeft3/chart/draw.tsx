@@ -59,10 +59,9 @@ export default defineComponent({
           },
           series: [
             {
-              name: '网内进人事由',
+              name: '行人挡道事由',
               type: 'pie',
-              radius: [1, 70],
-              roseType: 'area',
+              radius: [40, 70],
               center: ['50%', '40%'],
               itemStyle: {
                 borderRadius: 5,

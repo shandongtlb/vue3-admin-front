@@ -51,14 +51,32 @@
             </div>
             <div>
               <dv-border-box-12>
-                <center-right1 />
+                <center-left2 />
               </dv-border-box-12>
+            </div>
+            <!-- 中间 -->
+            <div>
+              <dv-border-box-12>
+                <center />
+              </dv-border-box-12>
+            </div>
+            <!-- 中间 -->
+            <dv-border-box-12>
+              <center-left3 />
+            </dv-border-box-12>
+            <div>
+              <dv-border-box-13>
+                <center-left4 />
+              </dv-border-box-13>
             </div>
           </div>
           <!-- 第四行数据 -->
           <div class="bototm-box">
             <dv-border-box-12>
               <bottom-left />
+            </dv-border-box-12>
+            <dv-border-box-12>
+              <bottom-right />
             </dv-border-box-12>
           </div>
         </div>
@@ -72,7 +90,12 @@
   /* eslint-disable */
   import { defineComponent, ref, reactive, onMounted, onUnmounted } from 'vue';
   import CenterLeft1 from '../centerLeft1/index.vue';
+  import CenterLeft2 from '../centerLeft2/index.vue';
+  import CenterLeft3 from '../centerLeft3/index.vue';
+  import CenterLeft4 from '../centerLeft4/index.vue';
+  import Center from '../center/index.vue';
   import BottomLeft from '../bottomLeft/index.vue';
+  import BottomRight from '../bottomRight/index.vue';
   import { title, subtitle, moduleInfo, WEEK } from '@/constant/index';
   import useDraw from '@/utils/useDraw';
   import { formatTime } from '@/utils/index2';
@@ -80,9 +103,14 @@
   export default defineComponent({
     name: 'Home',
     components: {
-      CenterLeft1,
-      BottomLeft,
-    },
+    CenterLeft1,
+    CenterLeft2,
+    CenterLeft3,
+    CenterLeft4,
+    Center,
+    BottomLeft,
+    BottomRight,
+},
     setup() {
       // * 加载标识
       const loading = ref<boolean>(true);
