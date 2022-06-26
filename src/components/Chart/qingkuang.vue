@@ -1,0 +1,157 @@
+<template>
+  <div>
+    <div id="qingkuang" class="chart"></div>
+  </div>
+</template>
+
+<script>
+  import { onMounted } from 'vue';
+  import * as echarts from 'echarts';
+  export default {
+    name: 'Qingkuang',
+    setup() {
+      onMounted(() => {
+        const myChart = echarts.init(document.getElementById('qingkuang'));
+        myChart.setOption({
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              type: 'cross',
+              crossStyle: {
+                color: '#999',
+              },
+            },
+          },
+          toolbox: {
+            feature: {
+              dataView: { show: true, readOnly: false },
+              magicType: { show: true, type: ['line', 'bar'] },
+              restore: { show: true },
+              saveAsImage: { show: true },
+            },
+          },
+          legend: {
+            data: ['处理人数', '拘留人数', '案件总数'],
+          },
+          xAxis: [
+            {
+              type: 'category',
+              data: [
+                '一月',
+                '二月',
+                '三月',
+                '四月',
+                '五月',
+                '六月',
+                '七月',
+                '八月',
+                '九月',
+                '十月',
+                '十一月',
+                '十二月',
+              ],
+              axisPointer: {
+                type: 'shadow',
+              },
+            },
+          ],
+          yAxis: [
+            {
+              type: 'value',
+              name: '人数',
+              min: 0,
+              max: 50,
+              interval: 10,
+              axisLabel: {
+                formatter: '{value} 人',
+              },
+            },
+            {
+              type: 'value',
+              name: '案件',
+              min: 0,
+              max: 80,
+              interval: 20,
+              axisLabel: {
+                formatter: '{value} 起',
+              },
+            },
+          ],
+          series: [
+            {
+              name: '处理人数',
+              type: 'bar',
+              label: {
+                show: true,
+              },
+              tooltip: {
+                valueFormatter(value) {
+                  return `${value} 人`;
+                },
+              },
+              data: [20, 30, 12, 19, 18, 25, 23, 37, 33, 20, 16, 33],
+            },
+            {
+              name: '拘留人数',
+              type: 'bar',
+              label: {
+                show: true,
+              },
+              itemStyle: {
+                color: new echarts.graphic.LinearGradient(
+                  0,
+                  1,
+                  0,
+                  0,
+                  [
+                    {
+                      offset: 0,
+                      color: '#ffff00', // 0% 处的颜色
+                    },
+                    {
+                      offset: 0.6,
+                      color: '#ff9900', // 60% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: '#ff3300', // 100% 处的颜色
+                    },
+                  ],
+                  false,
+                ),
+              },
+              tooltip: {
+                valueFormatter(value) {
+                  return `${value} 人`;
+                },
+              },
+              data: [6, 14, 8, 11, 10, 13, 15, 18, 31, 18, 11, 23],
+            },
+            {
+              name: '案件总数',
+              type: 'line',
+              label: {
+                show: true,
+                position: 'top',
+              },
+              yAxisIndex: 1,
+              tooltip: {
+                valueFormatter(value) {
+                  return `${value} 起`;
+                },
+              },
+              data: [25, 63, 49, 42, 68, 23, 71, 62, 33, 40, 55, 23],
+            },
+          ],
+        });
+      });
+    },
+  };
+</script>
+
+<style>
+  .chart {
+    height: 400px;
+    width: 100%;
+  }
+</style>

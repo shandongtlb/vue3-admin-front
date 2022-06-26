@@ -9,45 +9,57 @@
         </div>
         <div class="header-content">
           <div class="content-title"> {{ timeToFix }}，治安支队 </div>
-          <div class="content-info">案件数量统计</div>
+          <div class="content-info">案件分析</div>
         </div>
       </div>
       <div class="header-right">
         <div class="stat-item">
-          <Statistic title="本月案件数量" :value="56" />
+          <Statistic title="办理案件数量" :value="56" />
         </div>
         <div class="stat-item">
-          <Statistic title="上月案件数量" :value="47" />
+          <Statistic title="打击处理数量" :value="47" />
         </div>
         <div class="stat-item">
-          <Statistic title="同月上年数量" :value="77" />
+          <Statistic title="拘留人数数量" :value="77" />
         </div>
       </div>
     </div>
 
-    <a-row :gutter="20" class="home-main">
-      <a-col :span="14" class="home-left">
-        <a-card class="pending-box enter-y" title="案件类型统计" :loading="loading">
+    <a-row :gutter="8" class="home-main">
+      <a-col :span="5" class="home-left">
+        <a-card class="pending-box enter-y" title="筛选菜单" :loading="loading">
           <div>
-            <Huizong />
-          </div>
-        </a-card>
-        <a-card class="project-box enter-y" title="数据比较" :loading="loading">
-          <div>
-            <Jingqing />
+            <Leftmenu />
           </div>
         </a-card>
       </a-col>
-      <a-col :span="10" class="home-right">
-        <a-card class="chart-box enter-y" title="能力分析" :loading="loading">
+      <a-col :span="19" class="home-left">
+        <a-card class="pending-box enter-y" title="所队案件数量统计" :loading="loading">
           <div>
-            <Chart />
+            <Suodui />
           </div>
         </a-card>
-        <a-card class="black-box enter-y" title="环比分析" :loading="loading">
+        <a-card class="project-box enter-y" title="案件办理情况" :loading="loading">
           <div>
-            <Huanbi />
+            <Qk />
           </div>
+        </a-card>
+      </a-col>
+      <a-col :span="8" class="home-left">
+        <a-card class="pending-box enter-y" title="能力分析" :loading="loading">
+          <div>
+            <Nl />
+          </div>
+        </a-card>
+      </a-col>
+      <a-col :span="16" class="home-left">
+        <a-card class="pending-box enter-y" title="案件类型统计一" :loading="loading">
+          <div> <Zl /></div>
+        </a-card>
+      </a-col>
+      <a-col :span="8" class="home-left">
+        <a-card class="pending-box enter-y" title="案件类型统计二" :loading="loading">
+          <div> <Xf /> </div>
         </a-card>
       </a-col>
     </a-row>
@@ -55,29 +67,25 @@
 </template>
 
 <script>
-  import { reactive, ref, onMounted } from 'vue';
+  import { ref, onMounted } from 'vue';
   import { UserOutlined } from '@ant-design/icons-vue';
   import { Statistic, Avatar } from 'ant-design-vue';
-  import Huizong from './huizong.vue';
-  import Huanbi from './huanbi.vue';
-  import Jingqing from './jingqingtongji.vue';
+  import Leftmenu from './menu.vue';
+  import Suodui from '@/components/Chart/suodui.vue';
+  import Qk from '@/components/Chart/qingkuang.vue';
+  import Nl from '@/components/Chart/nengli.vue';
+  import Xf from '@/components/Chart/xifen.vue';
+  import Zl from '@/components/Chart/zhonglei.vue';
   import { timeFix } from '@/utils/timefix';
-  import Chart from '@/components/Chart/nengli.vue';
   export default {
     name: 'Anjian',
-    components: { Chart, UserOutlined, Statistic, Avatar, Huizong, Huanbi, Jingqing },
+    components: { UserOutlined, Statistic, Avatar, Suodui, Leftmenu, Qk, Nl, Xf, Zl },
     setup() {
       // data
       const timeFormat = timeFix();
       const timeToFix = ref(timeFormat);
       const avatarUrl = ref(require('@/assets/images/logo.png'));
       const loading = ref(true);
-      const projectData = reactive([
-        { title: '3', content: 'this is a test', userName: '3', date: '2021-07-07' },
-        { title: '2', content: 'this is a test', userName: '2', date: '2021-07-07' },
-        { title: '1', content: 'this is a test', userName: '1', date: '2021-07-07' },
-      ]);
-      const pendingData = reactive([{ title: '1', content: 'this is a test' }]);
       // mounted
       onMounted(() => {
         setTimeout(() => {
@@ -88,8 +96,6 @@
         timeToFix,
         avatarUrl,
         loading,
-        projectData,
-        pendingData,
       };
     },
   };
