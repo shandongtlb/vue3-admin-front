@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="nengli" class="chart"></div>
+    <div id="nengli" class="nengli"></div>
   </div>
 </template>
 
@@ -57,7 +57,7 @@
 </script>
 
 <style>
-  .chart {
+  .nengli {
     height: 430px;
     width: 100%;
   }

@@ -81,7 +81,7 @@ export default defineComponent({
           ],
           series: [
             {
-              name: '案件数',
+              name: '上月',
               type: 'line',
               smooth: true,
               showAllSymbol: true,
@@ -96,37 +96,19 @@ export default defineComponent({
               data: val.rateData,
             },
             {
-              name: '发送客流',
+              name: '本月',
               type: 'bar',
               barWidth: 10,
               itemStyle: {
                 normal: {
                   barBorderRadius: 5,
                   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    { offset: 0, color: '#956FD4' },
-                    { offset: 1, color: '#3EACE5' },
+                    { offset: 0, color: '#ffff00' },
+                    { offset: 1, color: '#ff9900' },
                   ]),
                 },
               },
               data: val.barData,
-            },
-            {
-              name: '总客流',
-              type: 'bar',
-              barGap: '-100%',
-              barWidth: 10,
-              itemStyle: {
-                normal: {
-                  barBorderRadius: 5,
-                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    { offset: 0, color: 'rgba(156,107,211,0.8)' },
-                    { offset: 0.2, color: 'rgba(156,107,211,0.5)' },
-                    { offset: 1, color: 'rgba(156,107,211,0.2)' },
-                  ]),
-                },
-              },
-              z: -12,
-              data: val.lineData,
             },
           ],
         };

@@ -9389,6 +9389,14 @@ uuid@^8.3.2:
   resolved "https://registry.npmmirror.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
+v-viewer@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.npmmirror.com/v-viewer/-/v-viewer-3.0.10.tgz#7e87ccbfd972d229e65c58996b8daa103fc98727"
+  integrity sha512-ZT5sYYS+Cy4z2TP/PuhqPyiK4NonaZzhkDPfiY9bwa5EjGyusO8R7/k/4c1ptvTzx2nBSV9MvQHl2X3XzhANqw==
+  dependencies:
+    lodash "^4.17.21"
+    viewerjs "^1.9.0"
+
 v8-compile-cache-lib@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmmirror.com/v8-compile-cache-lib/-/v8-compile-cache-lib-3.0.1.tgz#6336e8d71965cb3d35a1bbb7868445a7c05264bf"
@@ -9411,6 +9419,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npmmirror.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
+
+viewerjs@^1.9.0:
+  version "1.10.5"
+  resolved "https://registry.npmmirror.com/viewerjs/-/viewerjs-1.10.5.tgz#a0f52fe7c15fa27003099af8e7552378ed5fc94d"
+  integrity sha512-QwKrmXlSfKg5x4y74F/jicpHIRqBMMfHXyboOxHDi5n4XAaejjpalphPq4/HW6venQAoMiD57HpVwBk0JvqpSA==
 
 vue-cli-plugin-windicss@^1.1.4:
   version "1.1.4"

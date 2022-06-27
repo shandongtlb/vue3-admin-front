@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="xifen" class="chart"></div>
+    <div id="xifen" class="chart1"></div>
   </div>
 </template>
 
@@ -45,7 +45,6 @@
         ];
         myChart.setOption({
           title: {
-            text: '列车，车站，沿线案件分布',
             left: 'center',
             textStyle: {
               color: '#999',
@@ -57,7 +56,7 @@
             const top = idx * 33.3;
             return {
               type: 'pie',
-              radius: [0, 60],
+              radius: [20, 60],
               top: `${top}%`,
               height: '33.33%',
               left: 'center',
@@ -68,13 +67,13 @@
               },
               label: {
                 alignTo: 'edge',
-                formatter: '{name|{b}}\n{time|{c} 小时}',
+                formatter: '{name|{b}}\n{time|{c} 起}',
                 minMargin: 5,
                 edgeDistance: 10,
                 lineHeight: 12,
                 rich: {
                   time: {
-                    fontSize: 10,
+                    fontSize: 11,
                     color: '#999',
                   },
                 },
@@ -105,7 +104,7 @@
 </script>
 
 <style>
-  .chart {
+  .chart1 {
     height: 600px;
     width: 100%;
   }

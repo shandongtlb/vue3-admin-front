@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="zhonglei" class="chart"></div>
+    <div id="zhonglei" class="zhonglei"></div>
   </div>
 </template>
 
@@ -57,8 +57,8 @@
 </script>
 
 <style>
-  .chart {
-    height: 430px;
+  .zhonglei {
+    height: 600px;
     width: 100%;
   }
 </style>

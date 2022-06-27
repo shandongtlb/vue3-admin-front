@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="suodui" class="chart"></div>
+    <div id="suodui" class="suodui"></div>
   </div>
 </template>
 
@@ -80,7 +80,7 @@
 </script>
 
 <style>
-  .chart {
+  .suodui {
     height: 400px;
     width: 100%;
   }

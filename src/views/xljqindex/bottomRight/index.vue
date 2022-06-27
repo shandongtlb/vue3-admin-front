@@ -6,7 +6,7 @@
           <i class="iconfont icon-chart-line" />
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2 mt-1">数据统计图</span>
+          <span class="fs-xl text mx-2 mt-1">网内进人数据统计图</span>
         </div>
       </div>
       <div>

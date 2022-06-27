@@ -48,18 +48,13 @@
       <a-col :span="8" class="home-left">
         <a-card class="pending-box enter-y" title="能力分析" :loading="loading">
           <div>
-            <Nl />
+            <Xf />
           </div>
         </a-card>
       </a-col>
       <a-col :span="16" class="home-left">
         <a-card class="pending-box enter-y" title="案件类型统计一" :loading="loading">
           <div> <Zl /></div>
-        </a-card>
-      </a-col>
-      <a-col :span="8" class="home-left">
-        <a-card class="pending-box enter-y" title="案件类型统计二" :loading="loading">
-          <div> <Xf /> </div>
         </a-card>
       </a-col>
     </a-row>
@@ -73,13 +68,12 @@
   import Leftmenu from './menu.vue';
   import Suodui from '@/components/Chart/suodui.vue';
   import Qk from '@/components/Chart/qingkuang.vue';
-  import Nl from '@/components/Chart/nengli.vue';
   import Xf from '@/components/Chart/xifen.vue';
   import Zl from '@/components/Chart/zhonglei.vue';
   import { timeFix } from '@/utils/timefix';
   export default {
     name: 'Anjian',
-    components: { UserOutlined, Statistic, Avatar, Suodui, Leftmenu, Qk, Nl, Xf, Zl },
+    components: { UserOutlined, Statistic, Avatar, Suodui, Leftmenu, Qk, Xf, Zl },
     setup() {
       // data
       const timeFormat = timeFix();

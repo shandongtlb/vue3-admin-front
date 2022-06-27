@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ height: '968px', width: '100%' }">
+  <div :style="{ height: '908px', width: '100%' }">
     <antd-generate-form ref="generateFormRef" :data="widgetForm">
       <slot><a-button type="primary" @click="handleSubmit">查询</a-button></slot>
     </antd-generate-form>

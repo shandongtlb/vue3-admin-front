@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="qingkuang" class="chart"></div>
+    <div id="qingkuang" class="qingkuang"></div>
   </div>
 </template>
 
@@ -150,7 +150,7 @@
 </script>
 
 <style>
-  .chart {
+  .qingkuang {
     height: 400px;
     width: 100%;
   }
