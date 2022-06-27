@@ -45,11 +45,13 @@
         ];
         myChart.setOption({
           title: {
+            text: '站、车、线案件占比',
             left: 'center',
-            textStyle: {
-              color: '#999',
-              fontWeight: 'normal',
-              fontSize: 14,
+          },
+          toolbox: {
+            feature: {
+              dataView: { show: true, readOnly: false },
+              saveAsImage: { show: true },
             },
           },
           series: datas.map(function (data, idx) {
@@ -60,7 +62,7 @@
               top: `${top}%`,
               height: '33.33%',
               left: 'center',
-              width: 375,
+              width: 275,
               itemStyle: {
                 borderColor: '#fff',
                 borderWidth: 1,

@@ -13,6 +13,13 @@
       onMounted(() => {
         const myChart = echarts.init(document.getElementById('qingkuang'));
         myChart.setOption({
+          //title: {
+          //text: '案件办理情况',
+          //},
+          grid: {
+            //left: '25%',
+            bottom: '6%',
+          },
           tooltip: {
             trigger: 'axis',
             axisPointer: {
@@ -53,6 +60,7 @@
               axisPointer: {
                 type: 'shadow',
               },
+              axisLabel: { interval: 0, rotate: 0 },
             },
           ],
           yAxis: [
@@ -71,7 +79,7 @@
               name: '案件',
               min: 0,
               max: 80,
-              interval: 20,
+              interval: 10,
               axisLabel: {
                 formatter: '{value} 起',
               },
@@ -83,6 +91,9 @@
               type: 'bar',
               label: {
                 show: true,
+                textStyle: {
+                  color: '#ffffff',
+                },
               },
               tooltip: {
                 valueFormatter(value) {
@@ -96,6 +107,9 @@
               type: 'bar',
               label: {
                 show: true,
+                textStyle: {
+                  color: '#ffffff',
+                },
               },
               itemStyle: {
                 color: new echarts.graphic.LinearGradient(
@@ -106,7 +120,7 @@
                   [
                     {
                       offset: 0,
-                      color: '#ffff00', // 0% 处的颜色
+                      color: '#ff9900', // 0% 处的颜色
                     },
                     {
                       offset: 0.6,
@@ -151,7 +165,7 @@
 
 <style>
   .qingkuang {
-    height: 400px;
+    height: 350px;
     width: 100%;
   }
 </style>

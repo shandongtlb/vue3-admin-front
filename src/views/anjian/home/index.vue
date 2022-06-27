@@ -1,59 +1,34 @@
 <template>
   <div class="dashboard-container">
-    <div class="home-header enter-x">
-      <div class="header-left">
-        <div class="header-avatar">
-          <Avatar :size="70" :src="avatarUrl">
-            <template #icon><UserOutlined /></template>
-          </Avatar>
-        </div>
-        <div class="header-content">
-          <div class="content-title"> {{ timeToFix }}，治安支队 </div>
-          <div class="content-info">案件分析</div>
-        </div>
-      </div>
-      <div class="header-right">
-        <div class="stat-item">
-          <Statistic title="办理案件数量" :value="56" />
-        </div>
-        <div class="stat-item">
-          <Statistic title="打击处理数量" :value="47" />
-        </div>
-        <div class="stat-item">
-          <Statistic title="拘留人数数量" :value="77" />
-        </div>
-      </div>
-    </div>
-
     <a-row :gutter="8" class="home-main">
-      <a-col :span="5" class="home-left">
-        <a-card class="pending-box enter-y" title="筛选菜单" :loading="loading">
+      <a-col :span="24" class="home-left">
+        <a-card class="pending-box enter-y" :loading="loading">
           <div>
             <Leftmenu />
           </div>
         </a-card>
       </a-col>
-      <a-col :span="19" class="home-left">
-        <a-card class="pending-box enter-y" title="所队案件数量统计" :loading="loading">
-          <div>
-            <Suodui />
-          </div>
-        </a-card>
-        <a-card class="project-box enter-y" title="案件办理情况" :loading="loading">
-          <div>
-            <Qk />
-          </div>
-        </a-card>
-      </a-col>
-      <a-col :span="8" class="home-left">
-        <a-card class="pending-box enter-y" title="能力分析" :loading="loading">
+      <a-col :span="6" class="home-left">
+        <a-card class="pending-box enter-y" :loading="loading">
           <div>
             <Xf />
           </div>
         </a-card>
       </a-col>
-      <a-col :span="16" class="home-left">
-        <a-card class="pending-box enter-y" title="案件类型统计一" :loading="loading">
+      <a-col :span="12" class="home-left">
+        <a-card class="pending-box enter-y" :loading="loading">
+          <div>
+            <Qk />
+          </div>
+        </a-card>
+        <a-card class="project-box enter-y" :loading="loading">
+          <div>
+            <Suodui />
+          </div>
+        </a-card>
+      </a-col>
+      <a-col :span="6" class="home-left">
+        <a-card class="pending-box enter-y" :loading="loading">
           <div> <Zl /></div>
         </a-card>
       </a-col>
@@ -63,8 +38,6 @@
 
 <script>
   import { ref, onMounted } from 'vue';
-  import { UserOutlined } from '@ant-design/icons-vue';
-  import { Statistic, Avatar } from 'ant-design-vue';
   import Leftmenu from './menu.vue';
   import Suodui from '@/components/Chart/suodui.vue';
   import Qk from '@/components/Chart/qingkuang.vue';
@@ -73,7 +46,7 @@
   import { timeFix } from '@/utils/timefix';
   export default {
     name: 'Anjian',
-    components: { UserOutlined, Statistic, Avatar, Suodui, Leftmenu, Qk, Xf, Zl },
+    components: { Suodui, Leftmenu, Qk, Xf, Zl },
     setup() {
       // data
       const timeFormat = timeFix();
@@ -161,7 +134,7 @@
     }
     .home-main {
       display: flex;
-      padding: 20px;
+      padding: 10px;
       .home-left {
         .project-box {
           .project-item {
@@ -175,7 +148,7 @@
           }
         }
         .pending-box {
-          margin-top: 14px;
+          margin-top: 5px;
         }
       }
       .home-right {

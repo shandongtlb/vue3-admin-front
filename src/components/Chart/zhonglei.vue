@@ -13,23 +13,37 @@
       onMounted(() => {
         const myChart = echarts.init(document.getElementById('zhonglei'));
         myChart.setOption({
+          title: {
+            text: '案由统计情况',
+            left: 'center',
+          },
+          toolbox: {
+            feature: {
+              dataView: { show: true, readOnly: false },
+              saveAsImage: { show: true },
+            },
+          },
+          grid: {
+            left: '25%',
+            bottom: '3%',
+          },
           dataset: [
             {
               dimensions: ['name', 'score'],
               source: [
                 ['危害铁路安全', 20],
-                ['扰乱公共交通工具上的秩序', 44],
+                ['扰序', 44],
                 ['猥亵', 14],
-                ['冒用居民身份证', 24],
+                ['冒用身份证', 24],
                 ['殴打他人', 68],
-                ['非法携带管制器具', 8],
-                ['变造、使用变造的证明文件', 18],
+                ['携带管制器具', 8],
+                ['伪造证明文件', 18],
                 ['非法持有警械', 38],
                 ['诈骗', 45],
-                ['违法收购铁路废旧专用器材', 8],
+                ['收购专用器材', 8],
                 ['招摇撞骗', 18],
                 ['盗窃', 38],
-                ['擅自进入铁路防护网', 45],
+                ['网内进人', 45],
               ],
             },
             {
@@ -39,14 +53,30 @@
               },
             },
           ],
-          xAxis: {
+          yAxis: {
             type: 'category',
-            axisLabel: { interval: 0, rotate: 23 },
+            inverse: true,
+            axisLabel: {
+              interval: 0,
+              rotate: 0,
+              textStyle: {
+                show: true,
+                fontFamily: '微软雅黑',
+                color: '#000000',
+                fontSize: '10',
+              },
+            },
           },
-          yAxis: {},
+          xAxis: {},
           series: {
             type: 'bar',
-            encode: { x: 'name', y: 'score' },
+            encode: { y: 'name', x: 'score' },
+            label: {
+              show: true,
+              textStyle: {
+                color: '#ffffff',
+              },
+            },
             barWidth: 20,
             datasetIndex: 1,
           },

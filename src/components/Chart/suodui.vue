@@ -13,6 +13,21 @@
       onMounted(() => {
         const myChart = echarts.init(document.getElementById('suodui'));
         myChart.setOption({
+          title: {
+            text: '所队案件数量统计',
+            left: 'center',
+          },
+          toolbox: {
+            feature: {
+              dataView: { show: true, readOnly: false },
+              saveAsImage: { show: true },
+            },
+          },
+          grid: {
+            top: '15%',
+            //left: '25%',
+            bottom: '28%',
+          },
           dataset: [
             {
               dimensions: ['name', 'score'],
@@ -26,6 +41,9 @@
                 ['莱阳所', 18],
                 ['淄博北所', 38],
                 ['青岛西所', 45],
+                ['邹平所', 22],
+                ['烟台所', 19],
+                ['威海所', 33],
               ],
             },
             {
@@ -37,15 +55,24 @@
           ],
           xAxis: {
             type: 'category',
-            axisLabel: { interval: 0, rotate: 30 },
+            axisLabel: {
+              interval: 0,
+              formatter(value) {
+                return value.split('').join('\n');
+              },
+            },
           },
           yAxis: {},
           series: {
             type: 'bar',
-            barWidth: 30,
+            barWidth: 20,
             label: {
+              textStyle: {
+                fontSize: 10,
+                color: '#ffffff',
+              },
               show: true,
-              position: 'top',
+              //position: 'top',
             },
             itemStyle: {
               color: new echarts.graphic.LinearGradient(
@@ -81,7 +108,7 @@
 
 <style>
   .suodui {
-    height: 400px;
+    height: 200px;
     width: 100%;
   }
 </style>
