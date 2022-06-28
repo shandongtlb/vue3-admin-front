@@ -21,18 +21,6 @@
           <div class="d-flex aside-width">
             <div class="react-left ml-4 react-l-s">
               <span class="react-before"></span>
-              <span class="text">{{ subtitle[0] }}</span>
-            </div>
-            <div class="react-left ml-3">
-              <span class="text">{{ subtitle[1] }}</span>
-            </div>
-          </div>
-          <div class="d-flex aside-width">
-            <div class="react-right bg-color-blue mr-3">
-              <span class="text fw-b">{{ subtitle[2] }}</span>
-            </div>
-            <div class="react-right mr-4 react-l-s">
-              <span class="react-after"></span>
               <span class="text">
                 {{ timeInfo.dateYear }} {{ timeInfo.dateWeek }}
                 {{ timeInfo.dateDay }}
@@ -53,27 +41,24 @@
           </div>
           <!-- 第四行数据 -->
           <div class="content-box">
-            <div>
+            <div class="Qk">
               <dv-border-box-12>
-                <center-left1 />
-              </dv-border-box-12>
-            </div>
-            <div>
-              <dv-border-box-12>
-                <center-right1 />
+                <Qk />
               </dv-border-box-12>
             </div>
             <!-- 中间 -->
             <div>
-              <center />
+              <dv-border-box-12>
+                <center />
+              </dv-border-box-12>
             </div>
             <!-- 中间 -->
             <dv-border-box-12>
-              <center-right1 />
+              <center-left1 />
             </dv-border-box-12>
             <div>
               <dv-border-box-13>
-                <center-right2 />
+                <center-left2 />
               </dv-border-box-13>
             </div>
           </div>
@@ -87,9 +72,10 @@
   // @ts-nocheck
   /* eslint-disable */
   import { defineComponent, ref, reactive, onMounted, onUnmounted } from 'vue';
-  import CenterLeft1 from '../centerLeft1/index.vue';
   import Center from '../center/index.vue';
-  import CenterRight1 from '../centerRight1/index.vue';
+  import Qk from '@/components/Chart/qingkuang.vue';
+  import CenterLeft1 from '../../xljqindex/centerLeft1/index.vue';
+  import CenterLeft2 from '../../xljqindex/centerLeft2/index.vue';
   import CenterRight2 from '../centerRight2/index.vue';
   import BottomLeft from '../bottomLeft/index.vue';
   import BottomRight from '../bottomRight/index.vue';
@@ -100,10 +86,10 @@
   export default defineComponent({
     name: 'Home',
     components: {
-      CenterLeft1,
+      Qk,
       Center,
-      CenterRight1,
-      CenterRight2,
+      CenterLeft1,
+      CenterLeft2,
       BottomLeft,
       BottomRight,
     },

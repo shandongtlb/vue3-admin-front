@@ -1,12 +1,9 @@
 <template>
-  <div class="bottomLeft">
+  <div class="bottomLeft2">
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
-        <span>
-          <i class="iconfont icon-chart-line" />
-        </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2 mt-1">网内进人数据统计图</span>
+          <span class="fs-xl text mx-2 mt-1">行人挡道线路情况</span>
         </div>
       </div>
       <div>
@@ -28,9 +25,9 @@
 </script>
 
 <style lang="scss" scoped>
-  $box-height: 520px;
+  $box-height: 260px;
   $box-width: 100%;
-  .bottomLeft {
+  .bottomLeft2 {
     padding: 20px 16px;
     height: $box-height;
     width: $box-width;

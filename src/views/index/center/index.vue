@@ -9,24 +9,10 @@
       </div>
     </div>
     <div class="down">
-      <div class="ranking bg-color-black">
-        <span>
-          <i class="iconfont icon-tongji2"></i>
-        </span>
-        <span class="fs-xl text mx-2 mb-1">所队案件数量排行榜</span>
-        <dv-scroll-ranking-board class="dv-scr-rank-board" :config="ranking" />
-      </div>
       <div class="percent">
-        <div class="item bg-color-black">
-          <span>月沿线走访完成率</span>
-          <chart :tips="rate[0].tips" :color-obj="rate[0].colorData" />
-        </div>
-        <div class="item bg-color-black">
-          <span>走访效率</span>
-          <chart :tips="rate[1].tips" :color-obj="rate[1].colorData" />
-        </div>
         <div class="water">
-          <dv-water-level-pond class="dv-wa-le-po" :config="water" />
+          <span class="fs-xl text mx-3">案件查清率</span>
+          <div class="dv-wa-le-po"> <Tu /> </div>
         </div>
       </div>
     </div>
@@ -36,38 +22,35 @@
 <script>
   // @ts-nocheck
   import { defineComponent, reactive, onMounted } from 'vue';
-  import Chart from '../center/chart/draw';
-
+  import Tu from './tu.vue';
   export default defineComponent({
-    components: {
-      Chart,
-    },
+    components: { Tu },
     setup() {
       // 下层数据
       const titleDate = [
         {
-          number: 50,
-          text: '本周案件数量',
+          number: 0,
+          text: '危行案件',
         },
         {
-          number: 11,
-          text: '本周线路案件数量',
+          number: 0,
+          text: '路外伤亡',
         },
         {
-          number: 24,
-          text: '本周站区内案件数量',
+          number: 13,
+          text: '护网进人',
         },
         {
-          number: 371,
-          text: '本周移交中高风险旅客数量',
+          number: 12,
+          text: '行人挡道',
         },
         {
-          number: 29490,
-          text: '本周客流发送',
+          number: 25,
+          text: '线路警情总数',
         },
         {
-          number: 28110,
-          text: '本周客流到达',
+          number: 20,
+          text: '警情查清数量',
         },
       ];
       const titleItem = reactive([]);
@@ -125,10 +108,10 @@
       });
 
       const water = reactive({
-        data: [24, 45],
+        data: [60, 75],
         shape: 'roundRect',
         formatter: '{value}%',
-        waveNum: 3,
+        waveNum: 6,
       });
 
       const rate = reactive([
@@ -228,23 +211,13 @@
         }
       }
       .percent {
-        width: 40%;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
-        .item {
-          width: 50%;
-          height: 120px;
-          span {
-            margin-top: 8px;
-            font-size: 14px;
-            display: flex;
-            justify-content: center;
-          }
-        }
         .water {
           width: 100%;
           .dv-wa-le-po {
-            height: 120px;
+            height: 225px;
           }
         }
       }

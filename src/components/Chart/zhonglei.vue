@@ -63,7 +63,7 @@
                 show: true,
                 fontFamily: '微软雅黑',
                 color: '#000000',
-                fontSize: '10',
+                fontSize: '13',
               },
             },
           },

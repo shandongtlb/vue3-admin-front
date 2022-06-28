@@ -37,6 +37,8 @@
     min-width: $box-width;
     border-radius: 5px;
     .bg-color-black {
+      background-color: #0f1325;
+      opacity: 0.9;
       height: $box-height - 30px;
       border-radius: 10px;
     }

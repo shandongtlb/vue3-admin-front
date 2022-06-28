@@ -8,7 +8,7 @@
           <div class="d-flex jc-center">
             <dv-decoration-8 class="dv-dec-8" :color="['#568aea', '#000000']" />
             <div class="title">
-              <span class="title-text">{{ title }}</span>
+              <span class="title-text">{{ title1 }}</span>
               <dv-decoration-6 class="dv-dec-6" :reverse="true" :color="['#50e3c2', '#67a1e5']" />
             </div>
             <dv-decoration-8 class="dv-dec-8" :reverse="true" :color="['#568aea', '#000000']" />
@@ -21,18 +21,6 @@
           <div class="d-flex aside-width">
             <div class="react-left ml-4 react-l-s">
               <span class="react-before"></span>
-              <span class="text">{{ subtitle[0] }}</span>
-            </div>
-            <div class="react-left ml-3">
-              <span class="text">{{ subtitle[1] }}</span>
-            </div>
-          </div>
-          <div class="d-flex aside-width">
-            <div class="react-right bg-color-blue mr-3">
-              <span class="text fw-b">{{ subtitle[2] }}</span>
-            </div>
-            <div class="react-right mr-4 react-l-s">
-              <span class="react-after"></span>
               <span class="text">
                 {{ timeInfo.dateYear }} {{ timeInfo.dateWeek }}
                 {{ timeInfo.dateDay }}
@@ -76,7 +64,13 @@
               <bottom-left />
             </dv-border-box-12>
             <dv-border-box-12>
+              <bottom-left2 />
+            </dv-border-box-12>
+            <dv-border-box-12>
               <bottom-right />
+            </dv-border-box-12>
+            <dv-border-box-12>
+              <bottom-right2 />
             </dv-border-box-12>
           </div>
         </div>
@@ -95,8 +89,10 @@
   import CenterLeft4 from '../centerLeft4/index.vue';
   import Center from '../center/index.vue';
   import BottomLeft from '../bottomLeft/index.vue';
+  import BottomLeft2 from '../bottomLeft2/index.vue';
   import BottomRight from '../bottomRight/index.vue';
-  import { title, subtitle, moduleInfo, WEEK } from '@/constant/index';
+  import BottomRight2 from '../bottomRight2/index.vue';
+  import { title1, subtitle, moduleInfo, WEEK } from '@/constant/index';
   import useDraw from '@/utils/useDraw';
   import { formatTime } from '@/utils/index2';
 
@@ -109,7 +105,9 @@
     CenterLeft4,
     Center,
     BottomLeft,
+    BottomLeft2,
     BottomRight,
+    BottomRight2,
 },
     setup() {
       // * 加载标识
@@ -160,7 +158,7 @@
         loading,
         timeInfo,
         appRef,
-        title,
+        title1,
         subtitle,
         moduleInfo,
       };

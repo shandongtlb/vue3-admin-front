@@ -38,13 +38,23 @@ export default defineComponent({
             show: true,
           },
           grid: {
-            x: '8%',
+            x: '7%',
             width: '88%',
             top: '5%',
-            bottom: '7%',
+            bottom: '15%',
           },
           xAxis: {
             data: val.category,
+            axisLabel: {
+              interval: 0,
+              formatter(value) {
+                return value.split('').join('\n');
+              },
+              textStyle: {
+                color: '#ffffff',
+                fontSize: '13',
+              },
+            },
             axisLine: {
               lineStyle: {
                 color: '#B4B4B4',
@@ -57,6 +67,7 @@ export default defineComponent({
           yAxis: [
             {
               splitLine: { show: false },
+              max: 15,
               axisLine: {
                 lineStyle: {
                   color: '#B4B4B4',
@@ -69,6 +80,7 @@ export default defineComponent({
             },
             {
               splitLine: { show: false },
+              max: 15,
               axisLine: {
                 lineStyle: {
                   color: '#B4B4B4',
@@ -81,12 +93,12 @@ export default defineComponent({
           ],
           series: [
             {
-              name: '上月',
+              name: '警情总数',
               type: 'line',
               smooth: true,
               showAllSymbol: true,
               symbol: 'emptyCircle',
-              symbolSize: 8,
+              symbolSize: 18,
               yAxisIndex: 1,
               itemStyle: {
                 normal: {
@@ -96,19 +108,51 @@ export default defineComponent({
               data: val.rateData,
             },
             {
-              name: '本月',
+              name: '警情未查清',
               type: 'bar',
-              barWidth: 10,
+              label: {
+                show: true,
+                position: 'top',
+                textStyle: {
+                  color: '#ffffff',
+                },
+              },
+              barWidth: 35,
               itemStyle: {
                 normal: {
                   barBorderRadius: 5,
                   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    { offset: 0, color: '#ffff00' },
-                    { offset: 1, color: '#ff9900' },
+                    { offset: 0, color: '#ADFF2F' },
+                    { offset: 1, color: '#FFFF00' },
                   ]),
                 },
               },
               data: val.barData,
+            },
+            {
+              name: '警情查清数',
+              type: 'bar',
+              label: {
+                show: true,
+                position: 'top',
+                textStyle: {
+                  color: '#ffffff',
+                },
+              },
+              barGap: '-100%',
+              barWidth: 35,
+              itemStyle: {
+                normal: {
+                  barBorderRadius: 5,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    { offset: 0, color: '#41ee94' },
+                    { offset: 0.5, color: '#2e8b57' },
+                    { offset: 1, color: '#008b00' },
+                  ]),
+                },
+              },
+              z: -12,
+              data: val.lineData,
             },
           ],
         };
@@ -125,7 +169,7 @@ export default defineComponent({
     );
 
     return () => {
-      const height = '420px';
+      const height = '450px';
       const width = '100%';
 
       return (

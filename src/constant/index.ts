@@ -4,7 +4,8 @@ import { ModuleInfo } from './index.d';
 export const WEEK = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 
 // 主题名称与副标题名称
-export const title = '公安处治安大数据分析系统';
+export const title = '公安处治安数据分析系统';
+export const title1 = '线路治安动态';
 export const subtitle = ['案件分析', '疫情防控', '基础工作'];
 
 export const moduleInfo: ModuleInfo = [

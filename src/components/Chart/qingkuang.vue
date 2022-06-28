@@ -70,6 +70,14 @@
               min: 0,
               max: 50,
               interval: 10,
+              axisLine: {
+                //轴线
+                show: false,
+              },
+              splitLine: {
+                //网格线
+                show: false,
+              },
               axisLabel: {
                 formatter: '{value} 人',
               },
@@ -80,6 +88,14 @@
               min: 0,
               max: 80,
               interval: 10,
+              axisLine: {
+                //轴线
+                show: false,
+              },
+              splitLine: {
+                //网格线
+                show: false,
+              },
               axisLabel: {
                 formatter: '{value} 起',
               },
