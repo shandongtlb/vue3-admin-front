@@ -12,6 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     component: RouterView,
     meta: {
       title: t('routes.dashboard.dashboard'),
+      hideInMenu: true,
       icon: 'icon-yibiaopan',
     },
     children: [
@@ -19,11 +20,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'welcome',
         name: `${moduleName}-welcome`,
         meta: {
-          title: t('routes.dashboard.workbench'),
+          title: '首页',
           icon: 'icon-shouye',
         },
         component: () =>
-          import(/* webpackChunkName: "dashboard-welcome" */ '@/views/dashboard/welcome/index.vue'),
+          import(/* webpackChunkName: "dashboard-welcome" */ '@/views/index/index/index.vue'),
       },
     ],
   },
