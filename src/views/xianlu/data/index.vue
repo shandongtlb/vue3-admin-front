@@ -80,8 +80,9 @@
     DeleteOutlined,
     ExclamationCircleOutlined,
   } from '@ant-design/icons-vue';
+  import { useRouter } from 'vue-router';
   import { Tree, Dropdown, Space, Tooltip, Modal, Alert, Menu } from 'ant-design-vue';
-  import { userSchemas, deptSchemas, xqSchemas } from './formSchemas';
+  import { userSchemas, deptSchemas } from './formSchemas';
   import { baseColumns, type TableListItem, type TableColumnItem } from './columns';
   import type { LoadDataParams } from '@/components/core/dynamic-table';
   import { SplitPanel } from '@/components/basic/split-panel';
@@ -240,41 +241,6 @@
   /**
    * @description 打开用户弹窗
    */
-  const openXQModal = async (record: Partial<TableListItem> = {}) => {
-    const [formRef] = await showModal<any>({
-      modalProps: {
-        title: `详细情况`,
-        width: 800,
-        onFinish: async (values) => {
-          console.log(formRef);
-          values.id = record.id;
-          dynamicTableInstance?.reload();
-        },
-      },
-      formProps: {
-        labelWidth: 100,
-        schemas: xqSchemas,
-      },
-    });
-
-    formRef?.updateSchema([
-      {
-        field: 'departmentId',
-        componentProps: {
-          treeDefaultExpandedKeys:
-            findChildById(record?.departmentId, state.deptTree)?.keyPath || [],
-          treeData: state.deptTree,
-        },
-      },
-    ]);
-
-    formRef?.setFieldsValue(record);
-    if (record?.id) {
-      const { roles } = await getDataInfo({ userId: record.id });
-      formRef?.setFieldsValue({ roles });
-    }
-  };
-
   const delDept = (departmentId: number) => {
     Modal.confirm({
       title: '确定要删除该部门吗?',
@@ -322,7 +288,7 @@
     state.departmentIds = selectedKeys;
     dynamicTableInstance?.reload?.();
   };
-
+  const router = useRouter();
   const loadTableData = async ({ page, limit }: LoadDataParams) => {
     const data = await getDataListPage({
       page,
@@ -349,7 +315,13 @@
             perm: 'sys.user.update',
             effect: 'disable',
           },
-          onClick: () => openXQModal(record),
+          onClick: () => router.push({ name: 'demos-table-lol-info', params: { id: record.id } }),
+          onFinish: async (values) => {
+            console.log('新增/编辑内容', values);
+            values.id = record.id;
+            await updateData(values);
+            dynamicTableInstance?.reload();
+          },
         },
         {
           label: '删除',

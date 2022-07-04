@@ -7,4 +7,5 @@ export default {
   'views/xianlu/chezhan': () => import('@/views/xianlu/chezhan/index.vue'),
   'views/xianlu/data': () => import('@/views/xianlu/data/index.vue'),
   'views/xianlu/roledata': () => import('@/views/system/permission/roledata/index.vue'),
+  'views/xianlu/datainfo': () => import('@/views/xianlu/data/dataInfo.vue'),
 };

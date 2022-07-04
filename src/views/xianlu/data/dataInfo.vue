@@ -20,7 +20,14 @@
           </Carousel>
         </template>
         <Card.Meta :title="`${heroInfo.name}  ${heroInfo.title}`">
-          <Vform />
+          <template #description>
+            <a
+              :href="`https://101.qq.com/#/hero-detail?heroid=${heroInfo.heroId}&datatype=5v5`"
+              target="_blank"
+            >
+              详细资料
+            </a>
+          </template>
         </Card.Meta>
       </Card>
     </Card.Grid>
@@ -44,12 +51,11 @@
   import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
   import { useRoute } from 'vue-router';
   import { Carousel, Card } from 'ant-design-vue';
-  import Vform from './vform.vue';
   import { getDataInfo } from '@/api/system/data';
   import { useTabsViewStore } from '@/store/modules/tabsView';
+
   defineOptions({
     name: 'LoLHeroInfo',
-    components: { Vform },
   });
 
   const route = useRoute();

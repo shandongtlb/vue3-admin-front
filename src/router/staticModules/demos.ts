@@ -167,7 +167,7 @@ const routes: Array<RouteRecordRaw> = [
             },
             component: () =>
               import(
-                /* webpackChunkName: "lol-info-table" */ '@/views/xianlu/chezhan/heroInfo.vue'
+                /* webpackChunkName: "lol-info-table" */ '@/views/demos/tables/lol-table/heroInfo.vue'
               ),
           },
         ],
