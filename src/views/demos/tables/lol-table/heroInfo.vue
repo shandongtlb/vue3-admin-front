@@ -19,9 +19,7 @@
             </template>
           </Carousel>
         </template>
-        <Card.Meta :title="`${heroInfo.name}  ${heroInfo.title}`">
-          <Vform />
-        </Card.Meta>
+        <Card.Meta :title="`${heroInfo.name}  ${heroInfo.title}`"> </Card.Meta>
       </Card>
     </Card.Grid>
     <Card.Grid class="skins" style="width: 75%" :hoverable="false" :bordered="false">
@@ -44,12 +42,10 @@
   import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
   import { useRoute } from 'vue-router';
   import { Carousel, Card } from 'ant-design-vue';
-  import Vform from './vform.vue';
   import { getDataInfo } from '@/api/system/data';
   import { useTabsViewStore } from '@/store/modules/tabsView';
   defineOptions({
     name: 'LoLHeroInfo',
-    components: { Vform },
   });
 
   const route = useRoute();

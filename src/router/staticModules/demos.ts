@@ -234,6 +234,19 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
+  {
+    path: 'data/:id',
+    name: `data-table-lol-info`,
+    meta: {
+      title: '详情',
+      icon: 'icon-zhuomian',
+      hideInMenu: true,
+      keepAlive: true,
+      activeMenu: `data-table-lol`,
+    },
+    component: () =>
+      import(/* webpackChunkName: "lol-info-table" */ '@/views/xianlu/data/dataInfo.vue'),
+  },
 ];
 
 export default routes;

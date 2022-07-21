@@ -312,10 +312,10 @@
         {
           label: '详细情况',
           auth: {
-            perm: 'sys.user.update',
+            perm: 'sys.data.update',
             effect: 'disable',
           },
-          onClick: () => router.push({ name: 'demos-table-lol-info', params: { id: record.id } }),
+          onClick: () => router.push({ name: 'data-table-lol-info', params: { id: record.id } }),
           onFinish: async (values) => {
             console.log('新增/编辑内容', values);
             values.id = record.id;

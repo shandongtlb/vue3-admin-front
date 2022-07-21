@@ -55,7 +55,7 @@
   import { useTabsViewStore } from '@/store/modules/tabsView';
 
   defineOptions({
-    name: 'LoLHeroInfo',
+    name: 'DataHeroInfo',
   });
 
   const route = useRoute();
@@ -63,7 +63,7 @@
   const heroInfo = ref<any>({});
 
   onMounted(async () => {
-    const { data } = await getDataInfo({ userId: route.params.id });
+    const data = await getDataInfo({ userId: route.params.id });
     heroInfo.value = data;
     tabsViewStore.updateTabTitle(`${route.meta.title}(${heroInfo.value.title})`);
   });
